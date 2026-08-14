@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiền Phương — Nhân Viên Kinh Doanh | Dark CV &amp; Portfolio</title>
+  <meta name="description" content="Portfolio & CV của Hiền Phương - Nhân Viên Kinh Doanh với hơn 3 năm kinh nghiệm tư vấn bán hàng đa kênh, mở rộng tệp khách hàng và quản lý đơn hàng." />
+  <meta name="author" content="Hiền Phương" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script:wght@700&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Custom Style 2 -->
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow-top"></div>
+  <div class="ambient-glow-right"></div>
+
+  <div class="cv-container">
+    <div class="cv-grid">
+      
+      <!-- ==========================================================================
+           LEFT COLUMN: PHOTO, NAME, ABOUT ME, CONTACT (~35% Width)
+           ========================================================================== -->
+      <aside class="cv-left-col">
+        
+        <!-- Portrait Photo with Viewfinder Crop Box & Red Corner Brackets -->
+        <div class="photo-frame-wrap">
+          <div class="photo-crop-box">
+            <span class="corner-bracket bracket-tl"></span>
+            <span class="corner-bracket bracket-tr"></span>
+            <span class="corner-bracket bracket-bl"></span>
+            <span class="corner-bracket bracket-br"></span>
+            
+            <!-- Red / White Anchor Cursor Icon on Bottom Right -->
+            <svg class="crop-cursor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4L11 20L14 13L21 10L4 4Z" fill="#FFFFFF" stroke="#E4231D" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="photo-inner">
+              <img src="assets/hien-phuong.png" alt="Chân dung Hiền Phương" class="portrait-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Greeting & Stylized Name -->
+        <div class="hero-intro-group">
+          <p class="greeting-text">Hello,</p>
+          <h1 class="hero-name-row">
+            <span class="name-im">I'm</span>
+            <span class="script-h">H</span>iền Phương
+          </h1>
+          <p class="hero-job-title">Nhân viên kinh doanh</p>
+        </div>
+
+        <!-- Section: About Me -->
+        <section class="about-section-block">
+          <span class="red-badge">ABOUT ME</span>
+          <p class="about-desc-text">
+            Trong vòng 3 tháng đầu làm việc, tôi đặt mục tiêu trở thành nhân viên chính thức bằng cách đạt doanh số tối thiểu công ty đề ra. Đồng thời, tôi sẽ mở rộng mạng lưới khách hàng tiềm năng bằng cách tiếp cận và thiết lập mối quan hệ với ít nhất 10 khách hàng mới mỗi tháng. Tôi cũng sẽ chủ động tìm hiểu và áp dụng các kỹ năng bán hàng hiệu quả để nâng cao năng suất và đạt được kết quả tốt nhất trong công việc.
+          </p>
+        </section>
+
+        <!-- Section: Contact -->
+        <section class="contact-section-block" id="contact">
+          <span class="red-badge">LIÊN HỆ</span>
+          <ul class="contact-list">
+            <li>
+              <a href="tel:0876488047" class="contact-item">
+                <span class="contact-icon-circle">📞</span>
+                <span class="contact-val">(+84) 087 6488 047</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hphuong123123@gmail.com" class="contact-item">
+                <span class="contact-icon-circle">✉️</span>
+                <span class="contact-val">hphuong123123@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <span class="contact-icon-circle">💬</span>
+                <span class="contact-val">087 6488 047 (Zalo)</span>
+              </a>
+            </li>
+            <li>
+              <div class="contact-item">
+                <span class="contact-icon-circle">📍</span>
+                <span class="contact-val">Trường Thọ, Thủ Đức, TP.HCM</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </aside>
+
+      <!-- ==========================================================================
+           RIGHT COLUMN: EXPERIENCES, SKILLS, STRENGTHS, EDUCATION (~65% Width)
+           ========================================================================== -->
+      <main class="cv-right-col">
+        
+        <!-- 1. WORK EXPERIENCE (INTERACTIVE SCRUBBER) -->
+        <section class="content-block" id="experience">
+          <span class="red-badge">KINH NGHIỆM LÀM VIỆC</span>
+          
+          <div class="timeline-wrap">
+            <div class="tl-controls-row">
+              <div class="tl-slider-track-wrap">
+                <input type="range" id="tl-slider" class="tl-slider" min="0" max="3" step="1" value="0" aria-label="Thanh trượt mốc thời gian kinh nghiệm làm việc" />
+                <div class="tl-ticks" id="tl-ticks"></div>
+              </div>
+              <button type="button" id="tl-play-btn" class="tl-play-btn" aria-label="Tạm dừng tự động chạy timeline" title="Tạm dừng tự động chạy (Auto-play đang bật)">⏸</button>
+            </div>
+
+            <div class="tl-panel" id="tl-panel">
+              <div class="tl-date" id="tl-date">04/2021 — 12/2024</div>
+              <div class="tl-role" id="tl-role">Nhân Viên Kinh Doanh</div>
+              <div class="tl-company" id="tl-company">Công Ty TNHH Kinh Doanh Siêu Việt</div>
+              <ul class="tl-bullets" id="tl-bullets">
+                <li>Chủ động tìm kiếm, mở rộng tệp khách hàng tiềm năng qua các nền tảng mạng xã hội, e-mail,…</li>
+                <li>Tư vấn bán hàng, giải đáp các thắc mắc và khiếu nại của khách hàng về sản phẩm/dịch vụ qua Zalo, Facebook, Hotline</li>
+                <li>Cập nhật thông tin sản phẩm và quản lý đơn hàng trên website cùng các sàn thương mại điện tử (Shopee, Lazada)</li>
+                <li>Lập báo cáo định kỳ theo tháng về doanh số bán hàng và tình hình kinh doanh</li>
+                <li>Soạn thảo hợp đồng và làm báo giá cho thuê máy photocopy theo mẫu có sẵn</li>
+                <li>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và chương trình ưu đãi theo mẫu trên Canva</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div class="block-divider"></div>
+
+        <!-- 2. KỸ NĂNG (SOFT & CORE SKILLS) -->
+        <section class="content-block" id="skills">
+          <span class="red-badge">KỸ NĂNG</span>
+          <ul class="star-list">
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Kỹ năng giao tiếp:</strong> Truyền đạt thông tin rõ ràng, mạch lạc; chủ động lắng nghe và thấu hiểu sâu sắc mong muốn của khách hàng.
+            </li>
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Kỹ năng tư vấn &amp; Thuyết phục:</strong> Nắm vững kiến thức sản phẩm/dịch vụ, đưa ra giải pháp tối ưu phù hợp với từng nhu cầu của khách hàng.
+            </li>
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Kỹ năng tìm kiếm khách hàng:</strong> Hiểu rõ thị trường, xác định đối tượng khách hàng mục tiêu và khai thác qua Social, Trang Vàng, Google Maps.
+            </li>
+          </ul>
+        </section>
+
+        <div class="block-divider"></div>
+
+        <!-- 3. ĐIỂM MẠNH (STRENGTHS) -->
+        <section class="content-block" id="strengths">
+          <span class="red-badge">ĐIỂM MẠNH</span>
+          <ul class="star-list">
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Chịu áp lực cao:</strong> Khả năng làm việc tốt dưới áp lực chỉ tiêu doanh số và tiến độ công việc.
+            </li>
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Kiên nhẫn &amp; Bền bỉ:</strong> Chủ động theo sát, chăm sóc và nuôi dưỡng tệp khách hàng tiềm năng.
+            </li>
+            <li>
+              <span class="red-star">✱</span>
+              <strong>Tinh thần tự học hỏi:</strong> Nhanh nhạy cập nhật kiến thức sản phẩm mới và trau dồi kỹ năng chuyên môn.
+            </li>
+          </ul>
+        </section>
+
+        <div class="block-divider"></div>
+
+        <!-- 4. HỌC VẤN (EDUCATION) -->
+        <section class="content-block" id="education">
+          <span class="red-badge">HỌC VẤN</span>
+          <div class="edu-box">
+            <div class="edu-header">
+              <span class="edu-school">Cao Đẳng Thực Hành</span>
+              <span class="edu-year">07/2017 — 09/2020</span>
+            </div>
+            <div class="edu-major">IT - Phần mềm &bull; Chuyên ngành Lập trình di động</div>
+            <p class="edu-desc">Trang bị tư duy logic, khả năng tiếp cận và ứng dụng nhanh chóng các công nghệ, phần mềm quản lý kinh doanh và nền tảng số hiện đại.</p>
+          </div>
+        </section>
+
+        <div class="block-divider"></div>
+
+        <!-- 5. CÔNG CỤ SỬ DỤNG (TOOLS) -->
+        <section class="content-block" id="tools">
+          <span class="red-badge">CÔNG CỤ</span>
+          <div class="tools-row">
+            <div class="tool-chip-dark">
+              <span class="tool-dot-red"></span>
+              🎨 Canva (Thiết kế ấn phẩm &amp; Banner)
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="cv-footer">
+      <p>&copy; 2026 Hiền Phương — Nhân Viên Kinh Doanh. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Custom Script 2 -->
+  <script src="script2.js"></script>
+</body>
+</html>
