@@ -1,330 +1,634 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hiền Phương — Nhân Viên Kinh Doanh | Portfolio & CV</title>
-<meta name="description" content="Portfolio & CV của Hiền Phương - Nhân Viên Kinh Doanh chuyên nghiệp với kinh nghiệm tư vấn bán hàng đa kênh, tìm kiếm khách hàng tiềm năng và chăm sóc khách hàng." />
-<meta name="author" content="Hiền Phương" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chọn Mẫu CV — Hiền Phương | Portfolio & CV</title>
+  <meta name="description" content="Khám phá và lựa chọn các phiên bản mẫu CV & Portfolio chuyên nghiệp của Hiền Phương - Nhân Viên Kinh Doanh." />
+  <meta name="author" content="Hiền Phương" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-color: #0D0D0D;
+      --card-bg: rgba(22, 22, 26, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(255, 255, 255, 0.22);
+      
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --text-sub: #6B7280;
+
+      --navy-accent: #38BDF8;
+      --navy-glow: rgba(56, 189, 248, 0.18);
+      
+      --crimson-accent: #EF4444;
+      --crimson-glow: rgba(239, 68, 68, 0.18);
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-title: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .glow-left {
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, #0284c7 0%, transparent 70%);
+    }
+    .glow-right {
+      bottom: -100px;
+      right: -100px;
+      background: radial-gradient(circle, #e11d48 0%, transparent 70%);
+    }
+
+    /* Subtle Grid Background Pattern */
+    .grid-pattern {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       HEADER SECTION
+       ========================================================================== */
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #D1D5DB;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .main-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-title {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .sub-title strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       GALLERY CARDS GRID
+       ========================================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(16px);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .template-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .template-card.card-navy:hover {
+      box-shadow: 0 20px 40px -15px var(--navy-glow);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .template-card.card-do-den:hover {
+      box-shadow: 0 20px 40px -15px var(--crimson-glow);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    /* Card Preview / Thumbnail */
+    .card-preview {
+      width: 100%;
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+      background: #121216;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    /* Mock visual background for preview */
+    .preview-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      transition: transform 0.5s ease;
+    }
+
+    .template-card:hover .preview-bg {
+      transform: scale(1.04);
+    }
+
+    .navy-preview-bg {
+      background: radial-gradient(circle at 70% 30%, #1e3a8a 0%, #0a1128 60%, #050a18 100%);
+    }
+
+    .doden-preview-bg {
+      background: radial-gradient(circle at 30% 30%, #450a0a 0%, #170505 60%, #0a0a0a 100%);
+    }
+
+    /* Inner Preview Mockup Layout */
+    .preview-mockup {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: 85%;
+      height: 75%;
+      background: rgba(13, 13, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .mockup-avatar-wrap {
+      width: 90px;
+      height: 110px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #1f2937;
+      position: relative;
+    }
+
+    .card-navy .mockup-avatar-wrap {
+      border: 2px solid #38bdf8;
+    }
+
+    .card-do-den .mockup-avatar-wrap {
+      border: 2px solid #ef4444;
+    }
+
+    .mockup-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .mockup-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mockup-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .card-navy .mockup-tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+
+    .card-do-den .mockup-tag {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+
+    .mockup-name {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .mockup-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .mockup-line {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+    .mockup-line.w-80 { width: 80%; }
+    .mockup-line.w-60 { width: 60%; }
+    .mockup-line.w-40 { width: 40%; }
+
+    /* Card Content */
+    .card-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .card-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pill-navy {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .pill-crimson {
+      background: rgba(239, 68, 68, 0.12);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .card-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag-item {
+      font-size: 0.75rem;
+      color: #D1D5DB;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Card Action Button */
+    .btn-view {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-navy {
+      background: linear-gradient(135deg, #1E40AF 0%, #0284C7 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-navy:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-crimson {
+      background: linear-gradient(135deg, #991B1B 0%, #E11D48 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+    }
+    .btn-crimson:hover {
+      background: linear-gradient(135deg, #B91C1C 0%, #F43F5E 100%);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-view .arrow-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .template-card:hover .btn-view .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       FOOTER & QUICK CONTACT
+       ========================================================================== */
+    .gallery-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 24px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-contact a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--text-sub);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 32px 16px;
+      }
+      .gallery-header {
+        margin-bottom: 32px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .card-preview {
+        height: 220px;
+      }
+      .card-content {
+        padding: 20px;
+      }
+      .footer-contact {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="poster-container">
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-left"></div>
+  <div class="ambient-glow glow-right"></div>
+  <div class="grid-pattern"></div>
 
-  <!-- ===== HEADER / POSTER HERO ===== -->
-  <header class="poster-hero" id="top">
-    <!-- Top Header Bar with 2 Corner Labels -->
-    <div class="poster-top-bar">
-      <div class="corner-label corner-left">
-        <span class="brand-text">HIỀN PHƯƠNG</span>
-        <span class="dash-line"></span>
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Gallery Header -->
+    <header class="gallery-header">
+      <div class="badge-status">
+        <span class="status-dot"></span>
+        SẴN SÀNG NHẬN VIỆC • TP. THỦ ĐỨC, TP.HCM
       </div>
-      <div class="corner-label corner-right">
-        <span class="role-badge-top">NHÂN VIÊN KINH DOANH</span>
-      </div>
-    </div>
-
-    <!-- Center Big Title Poster -->
-    <div class="poster-title-wrap">
-      <div class="glow-sphere"></div>
-      <p class="hero-watermark">PORTFOLIO</p>
-      <h1 class="poster-name">HIỀN PHƯƠNG</h1>
-      <div class="poster-sub-row">
-        <span class="poster-role-tag">NHÂN VIÊN KINH DOANH</span>
-      </div>
-      <p class="poster-sub-desc">
-        Nhân viên kinh doanh với hơn 3 năm kinh nghiệm tư vấn bán hàng đa kênh,
-        mở rộng tệp khách hàng và quản lý đơn hàng trên các sàn thương mại điện tử.
+      <h1 class="main-title">Chọn mẫu CV</h1>
+      <p class="sub-title">
+        Bộ sưu tập Portfolio &amp; CV cá nhân của <strong>Hiền Phương</strong> — Nhân Viên Kinh Doanh với hơn 3 năm kinh nghiệm thực chiến đa kênh.
       </p>
+    </header>
 
-      <div class="poster-actions">
-        <a href="#contact" class="btn btn-primary">Liên hệ ngay</a>
-        <a href="#experience" class="btn btn-secondary">Xem kinh nghiệm</a>
-      </div>
-
-      <nav class="poster-nav">
-        <a href="#about">Về tôi</a>
-        <a href="#experience">Kinh nghiệm</a>
-        <a href="#skills">Kỹ năng</a>
-        <a href="#tools">Công cụ</a>
-        <a href="#education">Học vấn</a>
-        <a href="#contact">Liên hệ</a>
-      </nav>
-    </div>
-
-    <!-- Bottom Hero Divider with Monogram and Year Range -->
-    <div class="poster-bottom-bar">
-      <div class="monogram-box">HP</div>
-      <div class="bottom-divider-line"></div>
-      <div class="bottom-year-tag">2021 — 2026</div>
-    </div>
-  </header>
-
-  <!-- ===== RIBBON BANNER: ABOUT ME ===== -->
-  <div class="ribbon-banner">
-    <div class="ribbon-inner">
-      <span class="ribbon-tape"></span>
-      <span class="ribbon-label">about me</span>
-    </div>
-  </div>
-
-  <main class="poster-main">
-
-    <!-- ===== SECTION 01: ABOUT ME (2 COLUMNS) ===== -->
-    <section class="section section-about" id="about">
-      <div class="about-grid">
-        <!-- Left Column: Portrait Photo with rounded corners and sticker badge -->
-        <div class="about-left-col">
-          <div class="photo-card">
-            <img src="assets/hien-phuong.png" alt="Ảnh đại diện Hiền Phương" class="portrait-img" />
-            <div class="photo-sticker">HIENPHUONG</div>
-            <div class="photo-badge-card">
-              <span class="badge-icon">💼</span>
-              <span class="badge-text">CV / RESUME</span>
+    <!-- 2 Cards Gallery Grid -->
+    <section class="cards-grid">
+      
+      <!-- Card 1: Mẫu 1 - Navy -->
+      <article class="template-card card-navy">
+        <div class="card-preview">
+          <div class="preview-bg navy-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-1-navy/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Navy" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Navy Poster</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Name, Title, Meta Chips, Objective, Strengths -->
-        <div class="about-right-col">
-          <div class="about-header-group">
-            <h2 class="about-big-name">HIỀN PHƯƠNG</h2>
-            <p class="about-job-title">NHÂN VIÊN KINH DOANH</p>
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 1 — Navy</h2>
+            <span class="card-pill pill-navy">Poster Style</span>
           </div>
-
-          <!-- 4 Meta Info Chips -->
-          <div class="meta-chips-row">
-            <div class="meta-chip">
-              <span class="meta-label">Khu vực</span>
-              <span class="meta-val">Trường Thọ, Thủ Đức, TP.HCM</span>
-            </div>
-            <div class="meta-chip">
-              <span class="meta-label">Điện thoại</span>
-              <span class="meta-val">087 6488 047</span>
-            </div>
-            <div class="meta-chip">
-              <span class="meta-label">Email</span>
-              <span class="meta-val">hphuong123123@gmail.com</span>
-            </div>
-            <div class="meta-chip">
-              <span class="meta-label">Chuyên môn</span>
-              <span class="meta-val">IT &amp; Sales B2B</span>
-            </div>
+          <p class="card-desc">
+            Phong cách Poster &amp; Editorial ấn tượng, màu xanh Navy hiện đại kết hợp bố cục dòng thời gian và điểm nhấn thị giác mạnh mẽ.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Xanh Navy</span>
+            <span class="tag-item">Bố cục Poster</span>
+            <span class="tag-item">Timeline Kinh nghiệm</span>
           </div>
-
-          <!-- Full Career Objective Text -->
-          <div class="about-text-box">
-            <p class="section-text">
-              Trong vòng 3 tháng đầu làm việc, tôi đặt mục tiêu trở thành nhân viên chính thức bằng cách đạt doanh số tối thiểu công ty đề ra. Đồng thời, tôi sẽ mở rộng mạng lưới khách hàng tiềm năng bằng cách tiếp cận và thiết lập mối quan hệ với ít nhất 10 khách hàng mới mỗi tháng. Tôi cũng sẽ chủ động tìm hiểu và áp dụng các kỹ năng bán hàng hiệu quả để nâng cao năng suất và đạt được kết quả tốt nhất trong công việc.
-            </p>
-          </div>
-
-          <!-- Strengths & Weaknesses Cards -->
-          <div class="traits-grid">
-            <div class="trait-card strength">
-              <h3>✨ Điểm mạnh nổi bật</h3>
-              <ul class="trait-list">
-                <li><strong>Chịu áp lực cao:</strong> Khả năng làm việc tốt dưới áp lực chỉ tiêu doanh số và tiến độ công việc.</li>
-                <li><strong>Kiên nhẫn &amp; Bền bỉ:</strong> Chủ động theo sát, chăm sóc và nuôi dưỡng tệp khách hàng tiềm năng.</li>
-                <li><strong>Tinh thần tự học hỏi:</strong> Nhanh nhạy cập nhật kiến thức sản phẩm mới và trau dồi kỹ năng chuyên môn.</li>
-              </ul>
-            </div>
-            <div class="trait-card weakness">
-              <h3>🎯 Điểm yếu &amp; Giải pháp khắc phục</h3>
-              <ul class="trait-list">
-                <li><strong>Dễ bị sao nhãng &amp; Hay quên:</strong> Nhận thức rõ điều này để không ngừng cải thiện.</li>
-                <li><strong>Giải pháp rèn luyện:</strong> Luôn duy trì sổ tay ghi chép công việc, sử dụng ứng dụng nhắc việc (To-do list) và xây dựng checklist cụ thể đầu mỗi ngày.</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 02: WORK EXPERIENCE (PRESERVED SCRUBBER) ===== -->
-    <section class="section section-experience" id="experience">
-      <div class="section-header-box">
-        <p class="section-label">02 — KINH NGHIỆM LÀM VIỆC</p>
-        <h2 class="section-title">EXPERIENCES</h2>
-      </div>
-
-      <!-- Preserved Interactive Scrubber with original classes & IDs -->
-      <div class="timeline-wrap">
-        <input type="range" id="tl-slider" class="tl-slider" min="0" max="3" step="1" value="0" aria-label="Thanh trượt mốc thời gian kinh nghiệm làm việc" />
-        <div class="tl-ticks" id="tl-ticks"></div>
-
-        <div class="tl-panel" id="tl-panel">
-          <div class="tl-date" id="tl-date">04/2021 — 12/2024</div>
-          <div class="tl-role" id="tl-role">Nhân Viên Kinh Doanh</div>
-          <div class="tl-company" id="tl-company">Công Ty TNHH Kinh Doanh Siêu Việt</div>
-          <ul class="tl-bullets" id="tl-bullets">
-            <li>Chủ động tìm kiếm, mở rộng tệp khách hàng tiềm năng qua các nền tảng mạng xã hội, e-mail,…</li>
-            <li>Tư vấn bán hàng, giải đáp các thắc mắc và khiếu nại của khách hàng về sản phẩm/dịch vụ qua Zalo, Facebook, Hotline</li>
-            <li>Cập nhật thông tin sản phẩm và quản lý đơn hàng trên website cùng các sàn thương mại điện tử (Shopee, Lazada)</li>
-            <li>Lập báo cáo định kỳ theo tháng về doanh số bán hàng và tình hình kinh doanh</li>
-            <li>Soạn thảo hợp đồng và làm báo giá cho thuê máy photocopy theo mẫu có sẵn</li>
-            <li>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và chương trình ưu đãi theo mẫu trên Canva</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 03: SKILLS & COMPETENCIES ===== -->
-    <section class="section section-skills" id="skills">
-      <div class="section-header-box">
-        <p class="section-label">03 — KỸ NĂNG &amp; NĂNG LỰC</p>
-        <h2 class="section-title">SKILLS &amp; COMPETENCIES</h2>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skills-col">
-          <h3>💼 Kỹ năng chuyên môn</h3>
-          <ul class="tag-list">
-            <li>
-              <strong>1. Kỹ năng tư vấn &amp; Thuyết phục</strong>
-              Nắm vững kiến thức sản phẩm/dịch vụ, đưa ra giải pháp tối ưu phù hợp với từng nhu cầu của khách hàng.
-            </li>
-            <li>
-              <strong>2. Kỹ năng tìm kiếm khách hàng</strong>
-              Hiểu rõ thị trường, xác định đối tượng khách hàng mục tiêu và khai thác qua Social, Trang Vàng, Google Maps.
-            </li>
-            <li>
-              <strong>3. Quản lý bán hàng TMĐT &amp; Website</strong>
-              Đăng tải sản phẩm, theo dõi và xử lý đơn hàng trên Shopee, Lazada và website doanh nghiệp.
-            </li>
-            <li>
-              <strong>4. Báo giá &amp; Soạn thảo hợp đồng</strong>
-              Làm báo giá chi tiết, chuẩn bị hợp đồng kinh doanh/cho thuê máy và lập báo cáo doanh số tháng.
-            </li>
-            <li>
-              <strong>5. Quản trị &amp; Thu hồi công nợ</strong>
-              Đối soát và thu hồi công nợ định kỳ đối với các khách hàng mua hàng theo hình thức trả góp.
-            </li>
-          </ul>
-        </div>
-        <div class="skills-col">
-          <h3>🤝 Kỹ năng mềm &amp; Tác phong</h3>
-          <ul class="tag-list">
-            <li>
-              <strong>1. Kỹ năng giao tiếp hiệu quả</strong>
-              Truyền đạt thông tin rõ ràng, mạch lạc; chủ động lắng nghe và thấu hiểu sâu sắc mong muốn của khách hàng.
-            </li>
-            <li>
-              <strong>2. Xử lý khiếu nại &amp; Chăm sóc khách hàng</strong>
-              Giải quyết thắc mắc, hỗ trợ kỹ thuật sơ bộ và xử lý khiếu nại nhanh chóng, giữ vững uy tín cho công ty.
-            </li>
-            <li>
-              <strong>3. Khả năng chịu áp lực cao</strong>
-              Giữ vững tinh thần làm việc tích cực, kiên trì theo đuổi chỉ tiêu KPI và thích ứng nhanh với môi trường mới.
-            </li>
-            <li>
-              <strong>4. Nền tảng tư duy công nghệ</strong>
-              Được đào tạo bài bản về IT giúp dễ dàng làm quen với mọi hệ thống CRM, phần mềm quản lý và công cụ số.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 04: TOOLS & SOFTWARE (CHIPS) ===== -->
-    <section class="section section-tools" id="tools">
-      <div class="section-header-box">
-        <p class="section-label">04 — CÔNG CỤ SỬ DỤNG</p>
-        <h2 class="section-title">SOFTWARE / TOOLS</h2>
-      </div>
-
-      <div class="chips-container">
-        <div class="tool-chip"><span class="chip-dot"></span>Canva</div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 05: EDUCATION ===== -->
-    <section class="section section-education" id="education">
-      <div class="section-header-box">
-        <p class="section-label">05 — HỌC VẤN &amp; BẰNG CẤP</p>
-        <h2 class="section-title">EDUCATION</h2>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-item">
-          <div class="edu-year">07/2017 — 09/2020</div>
-          <div class="edu-details">
-            <h3>IT - Phần mềm, Cao Đẳng Thực Hành</h3>
-            <p class="edu-major">Chuyên ngành: Lập trình di động</p>
-            <p class="edu-desc">Trang bị tư duy logic, khả năng tiếp cận và ứng dụng nhanh chóng các công nghệ, phần mềm quản lý kinh doanh và nền tảng số hiện đại.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 06: CONTACT (ICON LIST) ===== -->
-    <section class="section section-contact" id="contact">
-      <div class="section-header-box">
-        <p class="section-label">06 — LIÊN HỆ HỢP TÁC</p>
-        <h2 class="section-title">CONTACT</h2>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-list-box">
-          <a href="tel:0876488047" class="contact-row">
-            <div class="contact-icon">📞</div>
-            <div class="contact-info">
-              <span class="contact-type">Số điện thoại</span>
-              <span class="contact-text">087 6488 047</span>
-            </div>
+          <a href="templates/mau-1-navy/" class="btn-view btn-navy">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
           </a>
+        </div>
+      </article>
 
-          <a href="mailto:hphuong123123@gmail.com" class="contact-row">
-            <div class="contact-icon">✉️</div>
-            <div class="contact-info">
-              <span class="contact-type">Email</span>
-              <span class="contact-text">hphuong123123@gmail.com</span>
+      <!-- Card 2: Mẫu 2 - Đỏ Đen -->
+      <article class="template-card card-do-den">
+        <div class="card-preview">
+          <div class="preview-bg doden-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-2-do-den/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Đỏ Đen" class="mockup-avatar" />
             </div>
-          </a>
-
-          <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer" class="contact-row">
-            <div class="contact-icon">💬</div>
-            <div class="contact-info">
-              <span class="contact-type">Zalo</span>
-              <span class="contact-text">087 6488 047 (Hiền Phương)</span>
-            </div>
-          </a>
-
-          <div class="contact-row">
-            <div class="contact-icon">📍</div>
-            <div class="contact-info">
-              <span class="contact-type">Địa điểm</span>
-              <span class="contact-text">Trường Thọ, Thủ Đức, TP.HCM</span>
+            <div class="mockup-content">
+              <span class="mockup-tag">Dark Cyber</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="contact-cta-box">
-          <h3>Sẵn sàng trao đổi cơ hội hợp tác</h3>
-          <p>Tôi luôn sẵn sàng tham gia phỏng vấn và trao đổi thêm về kinh nghiệm cũng như kế hoạch phát triển doanh số cùng quý công ty.</p>
-          <div class="contact-actions">
-            <a href="tel:0876488047" class="btn btn-primary">📞 Gọi ngay: 087 6488 047</a>
-            <a href="mailto:hphuong123123@gmail.com" class="btn btn-secondary">✉️ Gửi Email cho tôi</a>
-            <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">💬 Nhắn tin Zalo</a>
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 2 — Đỏ Đen</h2>
+            <span class="card-pill pill-crimson">Dark Cyber</span>
           </div>
+          <p class="card-desc">
+            Phong cách Dark Modern &amp; Công nghệ với tông Đỏ Đen tương phản cao, khung Viewfinder và bố cục 2 cột tinh tế, chuyên nghiệp.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Đen &amp; Đỏ</span>
+            <span class="tag-item">Bố cục 2 cột Grid</span>
+            <span class="tag-item">Khung Viewfinder Tech</span>
+          </div>
+          <a href="templates/mau-2-do-den/" class="btn-view btn-crimson">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
         </div>
-      </div>
+      </article>
+
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="poster-footer">
-    <p>&copy; 2026 Hiền Phương — Nhân Viên Kinh Doanh. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="gallery-footer">
+    <div class="footer-contact">
+      <a href="tel:0876488047">📞 087 6488 047</a>
+      <a href="mailto:hphuong123123@gmail.com">✉️ hphuong123123@gmail.com</a>
+      <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer">💬 Zalo Hiền Phương</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Hiền Phương — Nhân Viên Kinh Doanh. All rights reserved.</p>
   </footer>
 
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
