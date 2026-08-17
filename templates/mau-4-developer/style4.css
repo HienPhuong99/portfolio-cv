@@ -1,0 +1,344 @@
+/* ==========================================================================
+   STYLE 4 — MODERN DARK DEVELOPER PORTFOLIO & CV
+   Palette: Warm Dark (#0E0B08, #191309, #241B0F, #33271A)
+   Accents: Gold (#E3A93B, #F0BB55), Terracotta (#D2603A), Bronze (#A9762B)
+   Text: Light Sand (#F4ECDF), Muted Sand (#B3A488)
+   ========================================================================== */
+
+/* --- ROOT VARIABLES --- */
+:root {
+  --color-bg: #0E0B08;
+  --color-surface: #191309;
+  --color-surface-2: #241B0F;
+  --color-surface-3: #2E2214;
+  --color-border: #33271A;
+  --color-border-hover: rgba(227, 169, 59, 0.4);
+
+  --color-text: #F4ECDF;
+  --color-text-muted: #B3A488;
+  --color-text-subtle: #7D705C;
+
+  --color-gold: #E3A93B;
+  --color-gold-hover: #F0BB55;
+  --color-gold-glow: rgba(227, 169, 59, 0.22);
+  --color-gold-subtle: rgba(227, 169, 59, 0.1);
+
+  --color-terracotta: #D2603A;
+  --color-terracotta-hover: #E3734D;
+  --color-terracotta-glow: rgba(210, 96, 58, 0.2);
+
+  --color-bronze: #A9762B;
+
+  --font-heading: 'Space Grotesk', 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- RESET & ACCESSIBILITY --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enforce cursor-pointer on all clickable interactive items */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"],
+[role="tab"],
+.clickable {
+  cursor: pointer;
+}
+
+/* Accessible focus ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-gold) !important;
+  outline-offset: 3px !important;
+}
+
+/* Custom Gold Tinted Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* --- AMBIENT GLOW EFFECTS & BACKGROUND PATTERN --- */
+.ambient-gold-glow {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(150px);
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.glow-top {
+  top: -120px;
+  left: 20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-gold) 0%, rgba(227, 169, 59, 0.2) 50%, transparent 75%);
+}
+
+.glow-middle-right {
+  top: 45%;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-terracotta) 0%, rgba(210, 96, 58, 0.15) 50%, transparent 75%);
+}
+
+.glow-bottom-left {
+  bottom: -150px;
+  left: -80px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, var(--color-bronze) 0%, rgba(169, 118, 43, 0.15) 50%, transparent 75%);
+}
+
+/* Subtle Warm Grid Texture */
+.bg-warm-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(227, 169, 59, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 169, 59, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- TYPOGRAPHY UTILITIES --- */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF6E5 0%, #F0BB55 45%, #E3A93B 75%, #A9762B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- CARD HOVER & GLOW UTILITIES --- */
+.gold-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--color-gold-glow);
+  transform: translateY(-4px);
+}
+
+/* Gold CTA Button with Glow */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #E3A93B 0%, #F0BB55 100%);
+  color: #0E0B08;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 18px var(--color-gold-glow);
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F0BB55 0%, #FFF0D0 100%);
+  box-shadow: 0 6px 28px rgba(227, 169, 59, 0.45);
+  transform: translateY(-2px);
+  color: #0E0B08;
+}
+
+/* Secondary Terracotta Button */
+.btn-terracotta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(210, 96, 58, 0.12);
+  border: 1px solid rgba(210, 96, 58, 0.35);
+  color: #F4ECDF;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-terracotta:hover {
+  background: rgba(210, 96, 58, 0.22);
+  border-color: var(--color-terracotta);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px var(--color-terracotta-glow);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--color-border-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Status Dot Pulse (Amber / Gold) */
+.status-dot-gold {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-gold);
+  animation: goldPulse 2s infinite ease-in-out;
+}
+
+@keyframes goldPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* --- TOAST NOTIFICATION --- */
+.toast-gold {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #191309;
+  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-gold-glow);
+  z-index: 1000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.toast-gold.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --- PREFERS-REDUCED-MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- PRINT OPTIMIZATION --- */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    font-size: 11pt;
+  }
+
+  .ambient-gold-glow,
+  .bg-warm-grid,
+  nav,
+  .btn-gold,
+  .btn-terracotta,
+  .btn-ghost,
+  .toast-gold,
+  #btnPrintCV {
+    display: none !important;
+  }
+
+  .gold-card {
+    background: #FFFFFF !important;
+    border: 1px solid #D1D5DB !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .text-gold-gradient {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+  }
+
+  h1, h2, h3, h4 {
+    color: #0E0B08 !important;
+  }
+
+  p, span, li {
+    color: #374151 !important;
+  }
+}

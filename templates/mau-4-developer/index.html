@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Full-stack Developer &amp; UI Engineer | Portfolio</title>
+  <meta name="description" content="Personal portfolio and CV of Your Name — Full-stack Developer specializing in building high-performance web applications, scalable backend systems, and polished user experiences." />
+  <meta name="author" content="Your Name" />
+  <meta name="theme-color" content="#0E0B08" />
+
+  <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN with Custom Theme Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#0E0B08',
+              surface: '#191309',
+              surface2: '#241B0F',
+              surface3: '#2E2214',
+              border: '#33271A',
+              text: '#F4ECDF',
+              muted: '#B3A488',
+              subtle: '#7D705C',
+              gold: '#E3A93B',
+              goldHover: '#F0BB55',
+              terracotta: '#D2603A',
+              terracottaHover: '#E3734D',
+              bronze: '#A9762B',
+            }
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(227, 169, 59, 0.18)',
+            'gold-glow-lg': '0 0 35px rgba(227, 169, 59, 0.3)',
+            'terracotta-glow': '0 0 25px rgba(210, 96, 58, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet 4 -->
+  <link rel="stylesheet" href="style4.css" />
+</head>
+<body class="bg-[#0E0B08] text-[#F4ECDF] font-sans antialiased min-h-screen relative selection:bg-[#E3A93B]/30 selection:text-[#F4ECDF]">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-gold-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-gold-glow glow-middle-right" aria-hidden="true"></div>
+  <div class="ambient-gold-glow glow-bottom-left" aria-hidden="true"></div>
+  <div class="bg-warm-grid" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       1. STICKY NAVIGATION BAR
+       ========================================================================== -->
+  <header class="sticky top-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 pt-4 pb-2" id="mainNav">
+    <div class="max-w-6xl mx-auto flex items-center justify-between bg-[#191309]/85 backdrop-blur-xl border border-[#33271A] rounded-full px-5 py-3 shadow-2xl transition-all duration-300">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#E3A93B] rounded-full" aria-label="Go to top of page">
+        <span class="w-8 h-8 rounded-full bg-gradient-to-br from-[#E3A93B] to-[#A9762B] text-[#0E0B08] font-heading font-extrabold text-sm flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+          YN
+        </span>
+        <span class="font-heading font-bold text-base tracking-tight text-[#F4ECDF] group-hover:text-[#E3A93B] transition-colors duration-200">
+          Your Name
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main Navigation">
+        <a href="#about" class="nav-link-item px-3.5 py-1.5 rounded-full text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] transition-all cursor-pointer">About</a>
+        <a href="#skills" class="nav-link-item px-3.5 py-1.5 rounded-full text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] transition-all cursor-pointer">Skills</a>
+        <a href="#projects" class="nav-link-item px-3.5 py-1.5 rounded-full text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] transition-all cursor-pointer">Projects</a>
+        <a href="#experience" class="nav-link-item px-3.5 py-1.5 rounded-full text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] transition-all cursor-pointer">Experience</a>
+        <a href="#contact" class="nav-link-item px-3.5 py-1.5 rounded-full text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] transition-all cursor-pointer">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button type="button" id="btnPrintCV" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-[#B3A488] hover:text-[#F4ECDF] bg-[#241B0F] hover:bg-[#2E2214] border border-[#33271A] hover:border-[#E3A93B]/40 rounded-full transition-all cursor-pointer" title="Print or save as PDF">
+          <svg class="w-3.5 h-3.5 text-[#E3A93B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>CV / PDF</span>
+        </button>
+
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-bold text-[#0E0B08] bg-gradient-to-r from-[#E3A93B] to-[#F0BB55] hover:from-[#F0BB55] hover:to-[#FFF0D0] rounded-full shadow-lg shadow-[#E3A93B]/20 hover:shadow-[#E3A93B]/40 hover:-translate-y-0.5 transition-all cursor-pointer">
+          <span>Get in Touch</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button type="button" id="mobileMenuBtn" class="md:hidden p-1.5 text-[#B3A488] hover:text-[#F4ECDF] rounded-full cursor-pointer focus-visible:ring-2 focus-visible:ring-[#E3A93B]" aria-expanded="false" aria-label="Toggle navigation menu">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden max-w-6xl mx-auto mt-2 p-4 bg-[#191309]/95 backdrop-blur-2xl border border-[#33271A] rounded-2xl shadow-2xl flex flex-col gap-2">
+      <a href="#about" class="px-4 py-2 text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] rounded-lg transition-colors cursor-pointer">About</a>
+      <a href="#skills" class="px-4 py-2 text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] rounded-lg transition-colors cursor-pointer">Skills</a>
+      <a href="#projects" class="px-4 py-2 text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] rounded-lg transition-colors cursor-pointer">Projects</a>
+      <a href="#experience" class="px-4 py-2 text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] rounded-lg transition-colors cursor-pointer">Experience</a>
+      <a href="#contact" class="px-4 py-2 text-sm font-medium text-[#B3A488] hover:text-[#F4ECDF] hover:bg-[#241B0F] rounded-lg transition-colors cursor-pointer">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24 sm:space-y-32">
+
+    <!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="pt-8 sm:pt-16 pb-6">
+      <div class="flex flex-col items-start gap-6 max-w-4xl">
+        
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#191309] border border-[#33271A] shadow-sm">
+          <span class="status-dot-gold"></span>
+          <span class="text-xs font-semibold tracking-wide text-[#B3A488] uppercase">Available for Select Projects &amp; Roles</span>
+        </div>
+
+        <!-- Hero Headline & Name -->
+        <div class="space-y-3">
+          <p class="font-mono text-sm sm:text-base font-medium text-[#E3A93B] tracking-wider uppercase">
+            Hi, my name is
+          </p>
+          <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#F4ECDF] leading-[1.08]">
+            Your Name.
+          </h1>
+          <h2 class="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gold-gradient leading-[1.15]">
+            Full-stack Developer &amp; UI Engineer.
+          </h2>
+        </div>
+
+        <!-- Short Intro Paragraph -->
+        <p class="text-base sm:text-xl text-[#B3A488] max-w-2xl leading-relaxed">
+          I build high-performance web applications with clean architectures, intuitive interactions, and rock-solid backend systems. Focused on craft, speed, and scalable software solutions.
+        </p>
+
+        <!-- CTA Buttons Row -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#projects" class="btn-gold cursor-pointer">
+            <span>Explore Selected Work</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+
+          <a href="#contact" class="btn-terracotta cursor-pointer">
+            <span>Get in Touch</span>
+            <svg class="w-4 h-4 text-[#D2603A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+
+          <button type="button" data-copy="developer@example.com" class="btn-ghost cursor-pointer" title="Copy email address">
+            <svg class="w-4 h-4 text-[#E3A93B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>developer@example.com</span>
+          </button>
+        </div>
+
+        <!-- Social Quick Links -->
+        <div class="flex items-center gap-5 pt-4 text-[#B3A488]">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:text-[#E3A93B] transition-colors cursor-pointer" aria-label="GitHub Profile">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:text-[#E3A93B] transition-colors cursor-pointer" aria-label="LinkedIn Profile">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:text-[#E3A93B] transition-colors cursor-pointer" aria-label="Twitter X Profile">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+            </svg>
+            <span>Twitter / X</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. ABOUT SECTION
+         ========================================================================== -->
+    <section id="about" class="scroll-mt-24 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#E3A93B] uppercase">
+          <span>01 //</span>
+          <span>Background &amp; Philosophy</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#F4ECDF]">
+          About Me
+        </h2>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Narrative Text (7 cols) -->
+        <div class="lg:col-span-7 space-y-5 text-[#B3A488] leading-relaxed text-base sm:text-lg">
+          <p>
+            I am a full-stack engineer with over <strong class="text-[#F4ECDF] font-semibold">5 years of experience</strong> architecting modern web platforms. My work sits at the intersection of robust backend engineering and thoughtful UI design.
+          </p>
+          <p>
+            I believe great software is characterized by <strong class="text-[#E3A93B] font-semibold">intentional simplicity</strong>, exceptional speed, and resilient systems. From drafting database schemas to fine-tuning sub-millisecond frontend state transitions, I focus on end-to-end technical excellence.
+          </p>
+          <p>
+            When I'm not writing code, I enjoy exploring distributed systems architecture, mentoring junior engineers, and contributing to open-source developer tooling.
+          </p>
+        </div>
+
+        <!-- Right: Key Stats & Focus Areas (5 cols) -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+          
+          <div class="gold-card p-5 space-y-2">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-[#E3A93B]">5+</span>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#B3A488]">Years Experience</p>
+            <p class="text-xs text-[#7D705C]">Full-lifecycle software development</p>
+          </div>
+
+          <div class="gold-card p-5 space-y-2">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-[#D2603A]">30+</span>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#B3A488]">Projects Shipped</p>
+            <p class="text-xs text-[#7D705C]">Production-ready web applications</p>
+          </div>
+
+          <div class="gold-card p-5 space-y-2">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-[#F0BB55]">99.9%</span>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#B3A488]">Uptime Reliability</p>
+            <p class="text-xs text-[#7D705C]">Cloud infrastructure management</p>
+          </div>
+
+          <div class="gold-card p-5 space-y-2">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-[#A9762B]">100%</span>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#B3A488]">Commitment</p>
+            <p class="text-xs text-[#7D705C]">Clean code &amp; accessibility</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. SKILLS SECTION
+         ========================================================================== -->
+    <section id="skills" class="scroll-mt-24 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#E3A93B] uppercase">
+          <span>02 //</span>
+          <span>Technical Expertise</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#F4ECDF]">
+          Skills &amp; Technologies
+        </h2>
+        <p class="text-base text-[#B3A488] max-w-xl">
+          Core languages, frameworks, and engineering competencies I leverage daily.
+        </p>
+      </div>
+
+      <!-- Skills Cards Grid (4 Columns) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Skill 1: Frontend Architecture -->
+        <div class="gold-card p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#241B0F] border border-[#33271A] flex items-center justify-center text-[#E3A93B]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#F4ECDF]">Frontend Architecture</h3>
+            <p class="text-xs text-[#B3A488] leading-relaxed">
+              Modern declarative UI, component systems, state machines, and micro-interactions.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[#33271A]">
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">React</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Next.js</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">TypeScript</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <!-- Skill 2: Backend & APIs -->
+        <div class="gold-card p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#241B0F] border border-[#33271A] flex items-center justify-center text-[#D2603A]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#F4ECDF]">Backend &amp; APIs</h3>
+            <p class="text-xs text-[#B3A488] leading-relaxed">
+              RESTful &amp; GraphQL API design, serverless microservices, auth, and worker queues.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[#33271A]">
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Node.js</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Go</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">GraphQL</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">REST APIs</span>
+          </div>
+        </div>
+
+        <!-- Skill 3: Databases & Storage -->
+        <div class="gold-card p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#241B0F] border border-[#33271A] flex items-center justify-center text-[#F0BB55]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#F4ECDF]">Data &amp; Storage</h3>
+            <p class="text-xs text-[#B3A488] leading-relaxed">
+              Relational schemas, query optimization, caching strategies, and indexing.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[#33271A]">
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">PostgreSQL</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Redis</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Prisma</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">MongoDB</span>
+          </div>
+        </div>
+
+        <!-- Skill 4: Cloud & DevOps -->
+        <div class="gold-card p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#241B0F] border border-[#33271A] flex items-center justify-center text-[#A9762B]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-[#F4ECDF]">Cloud &amp; DevOps</h3>
+            <p class="text-xs text-[#B3A488] leading-relaxed">
+              CI/CD automation, containerization, edge computing, and cloud deployment pipelines.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[#33271A]">
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Docker</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">AWS / Cloud</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">Vercel</span>
+            <span class="px-2 py-1 bg-[#241B0F] text-[#F4ECDF] rounded text-xs font-mono">GitHub Actions</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SELECTED WORK / PROJECTS
+         ========================================================================== -->
+    <section id="projects" class="scroll-mt-24 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#E3A93B] uppercase">
+            <span>03 //</span>
+            <span>Featured Creations</span>
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#F4ECDF]">
+            Selected Work
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm font-mono text-[#B3A488]">
+          // Click cards for details &amp; links
+        </p>
+      </div>
+
+      <!-- Project Cards Grid (2x2 or Staggered) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Project 1: CloudOps Metric Engine -->
+        <article class="gold-card p-6 sm:p-8 flex flex-col justify-between group cursor-pointer">
+          <div class="space-y-5">
+            <!-- Card Header Meta -->
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#E3A93B] bg-[#241B0F] px-2.5 py-1 rounded border border-[#33271A]">
+                Infrastructure / SaaS
+              </span>
+              <div class="flex items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#B3A488] hover:text-[#E3A93B] transition-colors p-1" title="View Source on GitHub">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-[#B3A488] hover:text-[#E3A93B] transition-colors p-1" title="Live Preview">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project Title & Description -->
+            <div class="space-y-2">
+              <h3 class="font-heading text-2xl font-bold text-[#F4ECDF] group-hover:text-[#E3A93B] transition-colors flex items-center gap-2">
+                <span>Apex Analytics Platform</span>
+                <span class="text-xs text-[#E3A93B] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+              </h3>
+              <p class="text-sm text-[#B3A488] leading-relaxed">
+                Real-time telemetry and telemetry aggregation dashboard handling over 10M events daily with sub-second query rendering and interactive timeseries exploration.
+              </p>
+            </div>
+
+            <!-- Visual Preview Box -->
+            <div class="h-44 rounded-xl bg-[#241B0F] border border-[#33271A] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-[#E3A93B]/40 transition-colors">
+              <div class="flex items-center gap-2 text-xs font-mono text-[#7D705C]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#E3A93B]/40"></span>
+                <span>telemetry_stream.worker</span>
+              </div>
+              <div class="space-y-2 font-mono text-xs text-[#B3A488]">
+                <div class="flex justify-between border-b border-[#33271A]/60 pb-1">
+                  <span>Throughput:</span>
+                  <span class="text-[#E3A93B] font-bold">14,280 req/sec</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Latency P99:</span>
+                  <span class="text-[#D2603A] font-bold">18.4ms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Stack Tags -->
+          <div class="flex flex-wrap gap-2 pt-6">
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">Next.js 14</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">TypeScript</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">ClickHouse</span>
+          </div>
+        </article>
+
+        <!-- Project 2: VaultKey Security Hub -->
+        <article class="gold-card p-6 sm:p-8 flex flex-col justify-between group cursor-pointer">
+          <div class="space-y-5">
+            <!-- Card Header Meta -->
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#D2603A] bg-[#241B0F] px-2.5 py-1 rounded border border-[#33271A]">
+                Security / Developer Tool
+              </span>
+              <div class="flex items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#B3A488] hover:text-[#E3A93B] transition-colors p-1" title="View Source on GitHub">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-[#B3A488] hover:text-[#E3A93B] transition-colors p-1" title="Live Preview">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project Title & Description -->
+            <div class="space-y-2">
+              <h3 class="font-heading text-2xl font-bold text-[#F4ECDF] group-hover:text-[#D2603A] transition-colors flex items-center gap-2">
+                <span>VaultKey Secrets Manager</span>
+                <span class="text-xs text-[#D2603A] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+              </h3>
+              <p class="text-sm text-[#B3A488] leading-relaxed">
+                Zero-knowledge encrypted environment variable orchestrator with automated team permissions, audit logs, and instant CLI synchronization.
+              </p>
+            </div>
+
+            <!-- Visual Preview Box -->
+            <div class="h-44 rounded-xl bg-[#241B0F] border border-[#33271A] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-[#D2603A]/40 transition-colors">
+              <div class="flex items-center gap-2 text-xs font-mono text-[#7D705C]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#D2603A]/50"></span>
+                <span>aes_256_gcm.encrypt</span>
+              </div>
+              <div class="space-y-2 font-mono text-xs text-[#B3A488]">
+                <div class="flex justify-between border-b border-[#33271A]/60 pb-1">
+                  <span>Encryption:</span>
+                  <span class="text-[#D2603A] font-bold">Argon2id + AES-GCM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Sync Time:</span>
+                  <span class="text-[#E3A93B] font-bold">&lt; 42ms global edge</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Stack Tags -->
+          <div class="flex flex-wrap gap-2 pt-6">
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">Rust / WASM</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">React</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">Node.js</span>
+            <span class="px-2.5 py-1 rounded-full text-xs font-mono bg-[#241B0F] text-[#B3A488] border border-[#33271A]">Tailwind</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. EXPERIENCE TIMELINE SECTION
+         ========================================================================== -->
+    <section id="experience" class="scroll-mt-24 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#E3A93B] uppercase">
+          <span>04 //</span>
+          <span>Career Journey</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#F4ECDF]">
+          Experience &amp; Milestones
+        </h2>
+      </div>
+
+      <!-- Timeline Stack -->
+      <div class="relative border-l border-[#33271A] ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-10">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <!-- Timeline Node Marker -->
+          <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#191309] border-2 border-[#E3A93B] group-hover:bg-[#E3A93B] group-hover:shadow-[0_0_12px_#E3A93B] transition-all"></span>
+
+          <div class="gold-card p-6 sm:p-7 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#33271A] pb-3">
+              <div>
+                <h3 class="font-heading text-xl font-bold text-[#F4ECDF]">Senior Full-stack Engineer</h3>
+                <p class="text-sm font-medium text-[#E3A93B]">Acme Technologies Inc.</p>
+              </div>
+              <span class="text-xs font-mono text-[#B3A488] bg-[#241B0F] px-3 py-1 rounded-full border border-[#33271A] w-fit">
+                2023 — Present
+              </span>
+            </div>
+
+            <ul class="space-y-2 text-sm text-[#B3A488] leading-relaxed list-disc list-inside">
+              <li>Architected and led the migration of a monolithic API into modular edge-ready microservices, slashing server costs by 35%.</li>
+              <li>Spearheaded a component design system adopted across 6 product squads, accelerating feature delivery by 40%.</li>
+              <li>Engineered high-throughput event processing pipelines handling peak loads without service degradation.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs font-mono text-[#7D705C]">Next.js</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">TypeScript</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">PostgreSQL</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative group">
+          <!-- Timeline Node Marker -->
+          <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#191309] border-2 border-[#D2603A] group-hover:bg-[#D2603A] group-hover:shadow-[0_0_12px_#D2603A] transition-all"></span>
+
+          <div class="gold-card p-6 sm:p-7 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#33271A] pb-3">
+              <div>
+                <h3 class="font-heading text-xl font-bold text-[#F4ECDF]">Frontend &amp; UI Engineer</h3>
+                <p class="text-sm font-medium text-[#D2603A]">Starlight Digital Labs</p>
+              </div>
+              <span class="text-xs font-mono text-[#B3A488] bg-[#241B0F] px-3 py-1 rounded-full border border-[#33271A] w-fit">
+                2021 — 2023
+              </span>
+            </div>
+
+            <ul class="space-y-2 text-sm text-[#B3A488] leading-relaxed list-disc list-inside">
+              <li>Designed and built interactive data visualization tools using D3 and canvas, boosting client retention by 25%.</li>
+              <li>Refactored legacy single-page application for WCAG 2.1 AA accessibility compliance and improved Core Web Vitals to 98+.</li>
+              <li>Collaborated directly with UX researchers and backend teams to rapidly prototype and iterate on user-facing features.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs font-mono text-[#7D705C]">React</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">Tailwind CSS</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">GraphQL</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">Jest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative group">
+          <!-- Timeline Node Marker -->
+          <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#191309] border-2 border-[#A9762B] group-hover:bg-[#A9762B] group-hover:shadow-[0_0_12px_#A9762B] transition-all"></span>
+
+          <div class="gold-card p-6 sm:p-7 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#33271A] pb-3">
+              <div>
+                <h3 class="font-heading text-xl font-bold text-[#F4ECDF]">Junior Web Developer</h3>
+                <p class="text-sm font-medium text-[#A9762B]">Vanguard Studio</p>
+              </div>
+              <span class="text-xs font-mono text-[#B3A488] bg-[#241B0F] px-3 py-1 rounded-full border border-[#33271A] w-fit">
+                2019 — 2021
+              </span>
+            </div>
+
+            <ul class="space-y-2 text-sm text-[#B3A488] leading-relaxed list-disc list-inside">
+              <li>Built responsive e-commerce web storefronts and integrated payment gateways with webhook verifications.</li>
+              <li>Automated internal regression testing suites reducing staging deployment bug reports by 30%.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs font-mono text-[#7D705C]">JavaScript</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">Node.js</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">CSS3</span>
+              <span class="text-xs font-mono text-[#7D705C]">•</span>
+              <span class="text-xs font-mono text-[#7D705C]">Git</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. CONTACT & COLLABORATION
+         ========================================================================== -->
+    <section id="contact" class="scroll-mt-24 space-y-10">
+      
+      <!-- Contact Bento Card -->
+      <div class="gold-card p-8 sm:p-12 text-center relative overflow-hidden bg-gradient-to-b from-[#191309] to-[#241B0F]">
+        
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#E3A93B] uppercase">
+            <span>05 //</span>
+            <span>Initiate Collaboration</span>
+          </div>
+
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-[#F4ECDF] tracking-tight leading-tight">
+            Let's build something remarkable together.
+          </h2>
+
+          <p class="text-base sm:text-lg text-[#B3A488] leading-relaxed">
+            Whether you have an upcoming project, are exploring technical leadership roles, or simply want to connect — my inbox is always open.
+          </p>
+
+          <!-- Contact Action Buttons Grid -->
+          <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+            
+            <a href="mailto:developer@example.com" class="btn-gold text-sm sm:text-base cursor-pointer">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Send Direct Email</span>
+            </a>
+
+            <button type="button" data-copy="developer@example.com" class="btn-ghost text-sm sm:text-base cursor-pointer" title="Copy email address to clipboard">
+              <svg class="w-4 h-4 text-[#E3A93B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Email</span>
+            </button>
+
+          </div>
+
+          <!-- Social Details Row -->
+          <div class="pt-8 border-t border-[#33271A] flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-xs font-mono text-[#B3A488]">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#E3A93B] transition-colors cursor-pointer">GitHub ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#E3A93B] transition-colors cursor-pointer">LinkedIn ↗</a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#E3A93B] transition-colors cursor-pointer">Twitter / X ↗</a>
+            <a href="https://cal.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#E3A93B] transition-colors cursor-pointer">Schedule 15min ↗</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       8. SITE FOOTER
+       ========================================================================== -->
+  <footer class="relative z-10 border-t border-[#33271A] mt-24 py-10 px-4 sm:px-6 lg:px-8 bg-[#0E0B08]/90">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div class="space-y-1">
+        <p class="font-heading font-bold text-sm text-[#F4ECDF]">
+          Designed &amp; Developed by Your Name
+        </p>
+        <p class="text-xs text-[#7D705C]">
+          Built with HTML, Tailwind CSS &amp; Gold Dark Palette. All rights reserved &copy; 2026.
+        </p>
+      </div>
+
+      <a href="#hero" class="inline-flex items-center gap-2 text-xs font-mono font-medium text-[#B3A488] hover:text-[#E3A93B] transition-colors cursor-pointer py-1 px-3 rounded-full bg-[#191309] border border-[#33271A]" title="Back to top">
+        <span>Back to top</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotify" class="toast-gold" role="status" aria-live="polite">
+    <svg class="w-4 h-4 text-[#E3A93B] shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+    </svg>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Custom JavaScript 4 -->
+  <script src="script4.js"></script>
+</body>
+</html>
