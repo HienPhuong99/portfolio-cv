@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(textToCopy).then(function () {
-          showToast('Copied to clipboard: ' + textToCopy);
+          showToast('Đã sao chép: ' + textToCopy);
         }).catch(function () {
           fallbackCopyText(textToCopy);
         });
@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
     tempInput.select();
     try {
       document.execCommand('copy');
-      showToast('Copied to clipboard: ' + text);
+      showToast('Đã sao chép: ' + text);
     } catch (err) {
-      showToast('Unable to copy automatically');
+      showToast('Không thể sao chép tự động');
     }
     document.body.removeChild(tempInput);
   }
