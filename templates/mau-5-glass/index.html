@@ -12,6 +12,8 @@
       var t; try { t = localStorage.getItem('hp-glass-theme'); } catch (e) {}
       if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
+      var c; try { c = localStorage.getItem('hp-glass-clear'); } catch (e) {}
+      if (c !== null && !isNaN(+c)) document.documentElement.style.setProperty('--clear', (+c / 100).toFixed(2));
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +40,18 @@
       <span class="status"><span class="status-dot"></span>Sẵn sàng nhận việc</span>
       <button class="menu-btn" id="btnPrintCV" type="button" title="In hoặc lưu hồ sơ dạng PDF">In / PDF</button>
       <span class="clock" id="clock"></span>
+      <div class="clear-wrap">
+        <button class="clear-btn" id="clearBtn" type="button" aria-label="Điều chỉnh độ trong suốt" aria-expanded="false" aria-controls="clearPop" title="Độ trong suốt"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path class="fill" d="M12 3.5a8.5 8.5 0 0 1 0 17z"></path></svg></button>
+        <div class="clear-pop glass" id="clearPop" role="dialog" aria-label="Độ trong suốt">
+          <div class="cp-head"><span>Độ trong suốt</span><output id="clearVal" for="clearRange">45%</output></div>
+          <input class="cp-range" id="clearRange" type="range" min="0" max="100" step="1" value="45" aria-label="Độ trong suốt" />
+          <div class="cp-presets" role="group" aria-label="Mức có sẵn">
+            <button type="button" data-clear="12">Mờ đục</button>
+            <button type="button" data-clear="45">Cân bằng</button>
+            <button type="button" data-clear="85">Trong suốt</button>
+          </div>
+        </div>
+      </div>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Chuyển giao diện ngày/đêm" aria-pressed="false"></button>
     </div>
   </header>

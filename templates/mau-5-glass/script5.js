@@ -63,6 +63,37 @@
     t.finished.finally(() => root.classList.remove('vt-theme'));
   });
 
+  /* ---------- Độ trong suốt ---------- */
+  const CLEAR_KEY = 'hp-glass-clear';
+  const clearBtn = $('#clearBtn'), clearPop = $('#clearPop'), clearRange = $('#clearRange'), clearVal = $('#clearVal');
+  const presets = $$('[data-clear]');
+  function setClear(v, save) {
+    v = Math.max(0, Math.min(100, Math.round(v)));
+    root.style.setProperty('--clear', (v / 100).toFixed(2));
+    clearRange.value = v;
+    clearRange.style.setProperty('--fill', v + '%');
+    clearVal.textContent = v + '%';
+    presets.forEach(p => p.setAttribute('aria-pressed', +p.dataset.clear === v));
+    if (save) { try { localStorage.setItem(CLEAR_KEY, v); } catch (e) {} }
+  }
+  setClear(Math.round(parseFloat(getComputedStyle(root).getPropertyValue('--clear')) * 100) || 45);
+  clearRange.addEventListener('input', () => {
+    let v = +clearRange.value;
+    const snap = presets.map(p => +p.dataset.clear).find(p => Math.abs(p - v) <= 2);
+    if (snap !== undefined && snap !== v) { v = snap; if (navigator.vibrate) navigator.vibrate(6); }
+    setClear(v, true);
+  });
+  presets.forEach(p => p.addEventListener('click', () => setClear(+p.dataset.clear, true)));
+  const togglePop = open => {
+    clearPop.classList.toggle('open', open);
+    clearBtn.setAttribute('aria-expanded', open);
+  };
+  clearBtn.addEventListener('click', e => { e.stopPropagation(); togglePop(!clearPop.classList.contains('open')); });
+  clearBtn.addEventListener('pointerdown', e => e.stopPropagation());
+  clearPop.addEventListener('pointerdown', e => e.stopPropagation());
+  document.addEventListener('pointerdown', () => togglePop(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && clearPop.classList.contains('open')) { e.stopImmediatePropagation(); togglePop(false); clearBtn.focus(); } }, true);
+
   /* ---------- Ánh sáng theo chuột trên kính ---------- */
   let glowRaf = 0, lastEv = null;
   document.addEventListener('pointermove', e => {
