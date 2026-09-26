@@ -193,9 +193,10 @@
        GALLERY CARDS GRID
        ========================================================================== */
     .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
       margin-bottom: 40px;
     }
 
@@ -211,6 +212,13 @@
       text-decoration: none;
       color: inherit;
       position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* Ẩn các mẫu 1-4, chỉ hiện mẫu 5 (giữ nguyên code, không xóa) */
+    .template-card:not(.card-glass) {
+      display: none !important;
     }
 
     .template-card:hover {
@@ -686,8 +694,8 @@
     <!-- 4 Cards Gallery Grid -->
     <section class="cards-grid">
       
-      <!-- Card 1: Mẫu 1 - Navy -->
-      <article class="template-card card-navy">
+      <!-- Card 1: Mẫu 1 - Navy (Tạm ẩn) -->
+      <article class="template-card card-navy" style="display: none;" hidden>
         <div class="card-preview">
           <div class="preview-bg navy-preview-bg"></div>
           <div class="preview-mockup">
@@ -726,8 +734,8 @@
         </div>
       </article>
 
-      <!-- Card 2: Mẫu 2 - Đỏ Đen -->
-      <article class="template-card card-do-den">
+      <!-- Card 2: Mẫu 2 - Đỏ Đen (Tạm ẩn) -->
+      <article class="template-card card-do-den" style="display: none;" hidden>
         <div class="card-preview">
           <div class="preview-bg doden-preview-bg"></div>
           <div class="preview-mockup">
@@ -766,8 +774,8 @@
         </div>
       </article>
 
-      <!-- Card 3: Mẫu 3 - Emerald Bento -->
-      <article class="template-card card-emerald">
+      <!-- Card 3: Mẫu 3 - Emerald Bento (Tạm ẩn) -->
+      <article class="template-card card-emerald" style="display: none;" hidden>
         <div class="card-preview">
           <div class="preview-bg emerald-preview-bg"></div>
           <div class="preview-mockup">
@@ -806,8 +814,8 @@
         </div>
       </article>
 
-      <!-- Card 4: Mẫu 4 - Dark Gold Developer -->
-      <article class="template-card card-developer">
+      <!-- Card 4: Mẫu 4 - Dark Gold Developer (Tạm ẩn) -->
+      <article class="template-card card-developer" style="display: none;" hidden>
         <div class="card-preview">
           <div class="preview-bg developer-preview-bg"></div>
           <div class="preview-mockup">
