@@ -394,11 +394,16 @@ img { display: block; }
   .menu-link, .clock, .status, .menu-btn { display: none; }
   .clear-btn { width: 44px; height: 44px; border-radius: 12px; }
   .clear-btn svg { width: 20px; height: 20px; }
+  /* Sheet/popup phủ lên nội dung: nền gần đục để chữ phía sau không lộ ra
+     (backdrop-filter lồng trong .menubar không làm mờ được trang bên dưới) */
+  .win, .clear-pop { background: rgba(246, 249, 251, calc(.96 - .2 * var(--clear))); }
+  [data-theme="dark"] .win, [data-theme="dark"] .clear-pop { background: rgba(14, 20, 28, calc(.96 - .2 * var(--clear))); }
   .clear-pop { position: fixed; top: 60px; right: 12px; width: min(320px, calc(100vw - 24px)); }
   .cp-range { height: 44px; }
   .cp-presets button { padding: 12px 0; }
   .dock { display: none; }
-  .desk { position: relative; min-height: 100vh; padding: 68px 16px 104px; }
+  /* z-index: auto — không tạo stacking context, để sheet (.win z 960) nổi trên scrim (950) và callbar (800) */
+  .desk { position: relative; z-index: auto; min-height: 100vh; padding: 68px 16px 104px; }
   .home { display: flex; flex-direction: column; gap: 26px; }
   .home-card { position: relative; display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 30px; }
   .home-card img { width: 78px; height: 92px; object-fit: cover; object-position: top; border-radius: 20px; }
