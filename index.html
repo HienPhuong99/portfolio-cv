@@ -38,6 +38,9 @@
       --gold-accent: #E3A93B;
       --gold-glow: rgba(227, 169, 59, 0.22);
 
+      --glass-accent: #7CC4F0;
+      --glass-glow: rgba(124, 196, 240, 0.25);
+
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-title: 'Space Grotesk', sans-serif;
     }
@@ -111,7 +114,7 @@
     /* Main Container */
     .container {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1560px;
       margin: 0 auto;
       padding: 48px 20px;
       position: relative;
@@ -191,8 +194,8 @@
        ========================================================================== */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
       margin-bottom: 40px;
     }
 
@@ -234,6 +237,11 @@
     .template-card.card-developer:hover {
       box-shadow: 0 20px 40px -15px var(--gold-glow);
       border-color: rgba(227, 169, 59, 0.45);
+    }
+
+    .template-card.card-glass:hover {
+      box-shadow: 0 20px 40px -15px var(--glass-glow);
+      border-color: rgba(124, 196, 240, 0.45);
     }
 
     /* Card Preview / Thumbnail */
@@ -278,6 +286,10 @@
       background: radial-gradient(circle at 50% 30%, #2e2214 0%, #191309 60%, #0e0b08 100%);
     }
 
+    .glass-preview-bg {
+      background: radial-gradient(circle at 50% 30%, #153e5c 0%, #0d2235 60%, #0a0f14 100%);
+    }
+
     /* Inner Preview Mockup Layout */
     .preview-mockup {
       position: relative;
@@ -318,6 +330,10 @@
 
     .card-developer .mockup-avatar-wrap {
       border: 2px solid #e3a93b;
+    }
+
+    .card-glass .mockup-avatar-wrap {
+      border: 2px solid #7cc4f0;
     }
 
     .mockup-avatar {
@@ -363,6 +379,11 @@
     .card-developer .mockup-tag {
       background: rgba(227, 169, 59, 0.18);
       color: #f0bb55;
+    }
+
+    .card-glass .mockup-tag {
+      background: rgba(124, 196, 240, 0.18);
+      color: #7cc4f0;
     }
 
     .mockup-name {
@@ -445,6 +466,12 @@
       background: rgba(227, 169, 59, 0.15);
       color: #F0BB55;
       border: 1px solid rgba(227, 169, 59, 0.35);
+    }
+
+    .pill-glass {
+      background: rgba(124, 196, 240, 0.15);
+      color: #7cc4f0;
+      border: 1px solid rgba(124, 196, 240, 0.35);
     }
 
     .card-desc {
@@ -532,6 +559,18 @@
       color: #0E0B08;
     }
 
+    .btn-glass {
+      background: linear-gradient(135deg, #1d5f8a 0%, #0284c7 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-glass:hover {
+      background: linear-gradient(135deg, #0284c7 0%, #7cc4f0 100%);
+      box-shadow: 0 6px 20px rgba(124, 196, 240, 0.45);
+      color: #0A0F14;
+    }
+
     .btn-view .arrow-icon {
       transition: transform 0.2s ease;
     }
@@ -582,14 +621,21 @@
     /* ==========================================================================
        RESPONSIVE DESIGN
        ========================================================================== */
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
       .container {
         padding: 32px 16px;
       }
@@ -794,6 +840,46 @@
             <span class="tag-item">Developer Dark Aesthetic</span>
           </div>
           <a href="templates/mau-4-developer/" class="btn-view btn-developer">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5: Mẫu 5 - Liquid Glass Desktop -->
+      <article class="template-card card-glass">
+        <div class="card-preview">
+          <div class="preview-bg glass-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-5-glass/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Liquid Glass" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Liquid Glass OS</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 5 — Liquid Glass</h2>
+            <span class="card-pill pill-glass">Desktop OS</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Liquid Glass Desktop OS độc đáo với cửa sổ kính kéo thả, Dock ứng dụng, chế độ Ngày / Đêm mượt mà, tối ưu In/PDF và giao diện Mobile Sheet.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Giao diện Kính OS</span>
+            <span class="tag-item">Kéo thả Cửa sổ</span>
+            <span class="tag-item">Ngày / Đêm (Biển sương)</span>
+          </div>
+          <a href="templates/mau-5-glass/index.html" class="btn-view btn-glass">
             Xem mẫu này
             <span class="arrow-icon">→</span>
           </a>

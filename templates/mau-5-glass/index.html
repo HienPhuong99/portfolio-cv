@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light" data-palette="ocean">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiền Phương — Nhân Viên Kinh Doanh | Liquid Glass Portfolio &amp; CV</title>
+  <meta name="description" content="Portfolio &amp; CV cá nhân của Hiền Phương - Nhân Viên Kinh Doanh với hơn 3 năm kinh nghiệm thực chiến tư vấn bán hàng đa kênh, mở rộng tệp khách hàng B2B/B2C và quản lý đơn hàng sàn TMĐT." />
+  <meta name="author" content="Hiền Phương" />
+  <meta name="theme-color" content="#eef2f5" />
+  <script>
+    (function () {
+      var t; try { t = localStorage.getItem('hp-glass-theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style5.css" />
+</head>
+<body>
+
+  <div class="mesh" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+
+  <!-- Menu bar -->
+  <header class="menubar">
+    <div class="menubar-left">
+      <a class="brand" href="#" data-open="about" aria-label="Mở hồ sơ"><span class="brand-mark">HP</span>Hiền Phương</a>
+      <a class="menu-link" href="#" data-open="about">Về tôi</a>
+      <a class="menu-link" href="#" data-open="skills">Kỹ năng</a>
+      <a class="menu-link" href="#" data-open="exp">Kinh nghiệm</a>
+      <a class="menu-link" href="#" data-open="strengths">Điểm mạnh</a>
+      <a class="menu-link" href="#" data-open="edu">Học vấn &amp; Công cụ</a>
+      <a class="menu-link" href="#" data-open="contact">Liên hệ</a>
+    </div>
+    <div class="menubar-right">
+      <span class="status"><span class="status-dot"></span>Sẵn sàng nhận việc</span>
+      <button class="menu-btn" id="btnPrintCV" type="button" title="In hoặc lưu hồ sơ dạng PDF">In / PDF</button>
+      <span class="clock" id="clock"></span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Chuyển giao diện ngày/đêm" aria-pressed="false"></button>
+    </div>
+  </header>
+
+  <main class="desk">
+
+    <!-- Mobile home screen -->
+    <section class="home" aria-label="Màn hình chính">
+      <div class="home-card glass">
+        <img src="assets/hien-phuong.png" alt="Chân dung Hiền Phương" />
+        <div>
+          <p class="name">HIỀN PHƯƠNG.</p>
+          <p class="role">Nhân Viên Kinh Doanh</p>
+          <p class="mono muted" style="font-size:11px;margin-top:6px">3+ năm · TP. Thủ Đức</p>
+        </div>
+      </div>
+      <nav class="home-grid" aria-label="Mục hồ sơ">
+        <button class="home-app" type="button" data-open="about"><span class="app-icon ic1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>Về tôi</button>
+        <button class="home-app" type="button" data-open="skills"><span class="app-icon ic3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>Kỹ năng</button>
+        <button class="home-app" type="button" data-open="exp"><span class="app-icon ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>Kinh nghiệm</button>
+        <button class="home-app" type="button" data-open="strengths"><span class="app-icon ic4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>Điểm mạnh</button>
+        <button class="home-app" type="button" data-open="edu"><span class="app-icon ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>Học vấn</button>
+        <button class="home-app" type="button" data-open="contact"><span class="app-icon ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>Liên hệ</button>
+      </nav>
+    </section>
+
+    <!-- Window: Về tôi -->
+    <article class="win glass" id="win-about" aria-label="Về tôi">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Về tôi</h2></div>
+      <div class="win-body">
+        <div class="profile">
+          <img class="avatar" src="assets/hien-phuong.png" alt="Chân dung Hiền Phương - Nhân Viên Kinh Doanh" draggable="false" />
+          <div>
+            <p class="eyebrow">Hello, I'm</p>
+            <h1 class="name">HIỀN PHƯƠNG.</h1>
+            <p class="role">Nhân Viên Kinh Doanh</p>
+          </div>
+        </div>
+        <p class="intro">Nhân viên kinh doanh với hơn <strong>3 năm kinh nghiệm thực chiến</strong> tư vấn bán hàng đa kênh, mở rộng tệp khách hàng tiềm năng (B2B/B2C) và quản lý đơn hàng trên sàn thương mại điện tử.</p>
+        <p class="intro">“Trong vòng <strong>3 tháng đầu làm việc</strong>, tôi đặt mục tiêu trở thành <strong>nhân viên chính thức</strong> bằng cách đạt doanh số tối thiểu công ty đề ra. Đồng thời, tôi sẽ mở rộng mạng lưới khách hàng tiềm năng bằng cách tiếp cận và thiết lập mối quan hệ với <strong>ít nhất 10 khách hàng mới mỗi tháng</strong>.”</p>
+        <div class="stats">
+          <div class="stat"><b>3+</b><span>Năm thực chiến</span></div>
+          <div class="stat"><b>10+</b><span>KH mới / tháng</span></div>
+          <div class="stat"><b>100%</b><span>Cam kết KPI</span></div>
+          <div class="stat"><b>Đa kênh</b><span>B2B, Social &amp; TMĐT</span></div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-solid" href="tel:0876488047">Gọi ngay</a>
+          <a class="btn btn-glass" href="#" data-open="exp">Xem kinh nghiệm</a>
+          <button class="btn btn-glass" type="button" data-copy="0876488047" title="Sao chép số điện thoại">087 6488 047</button>
+        </div>
+        <p class="loc" style="margin-top:12px;padding:0">TP. Thủ Đức, TP.HCM</p>
+      </div>
+    </article>
+
+    <!-- Window: Kỹ năng -->
+    <article class="win glass" id="win-skills" data-w="lg" aria-label="Kỹ năng cốt lõi">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Kỹ năng cốt lõi</h2></div>
+      <div class="win-body">
+        <div class="cards">
+          <div class="card"><h3>Kỹ Năng Giao Tiếp</h3><p>Truyền đạt thông tin rõ ràng, mạch lạc; chủ động lắng nghe và thấu hiểu sâu sắc mong muốn của khách hàng.</p><span class="tags">Lắng nghe chủ động · Giao tiếp đa kênh · Thấu cảm</span></div>
+          <div class="card"><h3>Tư Vấn &amp; Thuyết Phục</h3><p>Nắm vững kiến thức sản phẩm/dịch vụ, đưa ra giải pháp tối ưu phù hợp với từng nhu cầu và ngân sách của khách hàng.</p><span class="tags">Tư vấn giải pháp · Đàm phán báo giá · Chốt đơn</span></div>
+          <div class="card"><h3>Tìm Kiếm Khách Hàng</h3><p>Hiểu rõ thị trường mục tiêu, xác định tệp khách hàng tiềm năng và khai thác qua Social, Trang Vàng, Google Maps.</p><span class="tags">Trang Vàng B2B · Google Maps · Social Media</span></div>
+          <div class="card"><h3>Vận Hành &amp; Đơn Hàng</h3><p>Cập nhật thông tin sản phẩm, quản lý đơn hàng Shopee/Lazada, theo dõi công nợ và chăm sóc khách hàng sau bán.</p><span class="tags">Shopee / Lazada · Thu hồi công nợ · After-sales</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Window: Kinh nghiệm -->
+    <article class="win glass" id="win-exp" aria-label="Kinh nghiệm làm việc">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Kinh nghiệm làm việc</h2></div>
+      <div class="win-body" style="padding-top:4px">
+        <ol class="timeline">
+          <li class="job"><span class="job-dot" style="background:#2f7fb5"></span><div>
+            <span class="job-time">04/2021 — 12/2024 (3 năm 8 tháng)</span>
+            <h3>Nhân Viên Kinh Doanh</h3><span class="job-co">Công Ty TNHH Kinh Doanh Siêu Việt</span>
+            <ul>
+              <li>Chủ động tìm kiếm, mở rộng tệp khách hàng tiềm năng qua các nền tảng mạng xã hội, e-mail,…</li>
+              <li>Tư vấn bán hàng, giải đáp các thắc mắc và khiếu nại của khách hàng về sản phẩm/dịch vụ qua Zalo, Facebook, Hotline.</li>
+              <li>Cập nhật thông tin sản phẩm và quản lý đơn hàng trên website cùng các sàn thương mại điện tử (Shopee, Lazada).</li>
+              <li>Lập báo cáo định kỳ theo tháng về doanh số bán hàng và tình hình kinh doanh.</li>
+              <li>Soạn thảo hợp đồng và làm báo giá cho thuê máy photocopy theo mẫu có sẵn.</li>
+              <li>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và chương trình ưu đãi theo mẫu trên Canva.</li>
+            </ul></div></li>
+          <li class="job"><span class="job-dot" style="background:#3aa7a0"></span><div>
+            <span class="job-time">03/2025 — 07/2025 (5 tháng)</span>
+            <h3>Nhân Viên Bán Hàng — Trực Page</h3><span class="job-co">Hộ Kinh Doanh 79 Store</span>
+            <ul>
+              <li>Trực page, tư vấn bán hàng, giải đáp thắc mắc và khiếu nại của khách hàng qua Facebook, Zalo.</li>
+              <li>Theo dõi, nhắc nhở và thu hồi công nợ đối với khách hàng mua trả góp đúng hạn.</li>
+              <li>Chăm sóc khách hàng sau bán hàng nhằm duy trì mối quan hệ và tăng tỷ lệ khách hàng quay lại.</li>
+            </ul></div></li>
+          <li class="job"><span class="job-dot" style="background:#7c6fd0"></span><div>
+            <span class="job-time">08/2025 — 09/2025</span>
+            <h3>Nhân Viên Kinh Doanh (Thử Việc)</h3><span class="job-co">Công ty TNHH Mr.Rin Group</span>
+            <ul>
+              <li>Chăm sóc, chào hàng qua tin nhắn tệp khách hàng tiềm năng theo data công ty bàn giao.</li>
+              <li>Chủ động học hỏi, nắm bắt đặc tính kỹ thuật sản phẩm và nhận biết chính xác mã hàng.</li>
+            </ul></div></li>
+          <li class="job"><span class="job-dot" style="background:#d98a4e"></span><div>
+            <span class="job-time">09/2025 — 11/2025</span>
+            <h3>Nhân Viên Kinh Doanh (Thử Việc)</h3><span class="job-co">Công ty TNHH TM Điện Thái Dương — Thadeco</span>
+            <ul>
+              <li>Tìm kiếm và khai thác danh sách khách hàng doanh nghiệp qua Trang Vàng, Google Maps.</li>
+              <li>Tư vấn giải pháp sản phẩm và gửi báo giá chi tiết cho khách hàng qua Zalo.</li>
+            </ul></div></li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- Window: Điểm mạnh -->
+    <article class="win glass" id="win-strengths" aria-label="Điểm mạnh và kỷ luật công việc">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Điểm mạnh &amp; Kỷ luật</h2></div>
+      <div class="win-body">
+        <div class="cards one">
+          <div class="card"><h3>Chịu Áp Lực Cao</h3><p>Khả năng làm việc tốt dưới áp lực chỉ tiêu doanh số và tiến độ công việc, duy trì năng lượng tích cực và sự tập trung cao độ.</p></div>
+          <div class="card"><h3>Kiên Nhẫn &amp; Bền Bỉ</h3><p>Chủ động theo sát, chăm sóc và nuôi dưỡng tệp khách hàng tiềm năng, không nản lòng trước các thương vụ kéo dài.</p></div>
+          <div class="card"><h3>Tinh Thần Tự Học Hỏi</h3><p>Nhanh nhạy cập nhật kiến thức sản phẩm mới, tiếp thu nhanh các công cụ số và không ngừng trau dồi kỹ năng chuyên môn.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Window: Học vấn & Công cụ -->
+    <article class="win glass" id="win-edu" data-w="lg" aria-label="Học vấn và công cụ làm việc">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Học vấn &amp; Công cụ</h2></div>
+      <div class="win-body">
+        <div class="edu">
+          <span class="job-time">07/2017 — 09/2020</span>
+          <h3>Cao Đẳng Thực Hành</h3>
+          <span class="job-co">IT - Phần Mềm • Lập trình di động</span>
+          <p class="muted" style="font-size:13.5px;line-height:1.55;margin-top:8px">Trang bị tư duy logic vững vàng, khả năng tiếp cận và ứng dụng nhanh chóng các công nghệ, phần mềm quản lý kinh doanh, quản trị sàn TMĐT và nền tảng số hiện đại.</p>
+        </div>
+        <div class="cards">
+          <div class="card"><h3>Canva Pro</h3><p>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và banner chương trình ưu đãi bán hàng.</p></div>
+          <div class="card"><h3>Shopee &amp; Lazada</h3><p>Quản trị thông tin sản phẩm, xử lý đơn hàng và theo dõi vận chuyển sàn thương mại điện tử.</p></div>
+          <div class="card"><h3>MS Excel &amp; Word</h3><p>Lập báo cáo doanh số, soạn thảo hợp đồng kinh tế và làm báo giá chi tiết cho khách hàng.</p></div>
+          <div class="card"><h3>Zalo OA &amp; Fanpage</h3><p>Trực page, tư vấn khách hàng, giải đáp thắc mắc và chăm sóc khách hàng sau bán hàng.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Window: Liên hệ -->
+    <article class="win glass" id="win-contact" data-w="sm" aria-label="Liên hệ">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng"></button><span class="l-min"></span><span class="l-max"></span></span><h2 class="win-title">Liên hệ</h2></div>
+      <div class="win-body">
+        <div class="contact-list">
+          <a class="contact-row" href="tel:0876488047"><span>ĐIỆN THOẠI</span><b>087 6488 047</b></a>
+          <a class="contact-row" href="mailto:hphuong123123@gmail.com"><span>EMAIL</span><b>hphuong123123@gmail.com</b></a>
+          <a class="contact-row" href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer"><span>ZALO</span><b>087 6488 047</b></a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Dock (desktop) -->
+  <nav class="dock glass" aria-label="Dock">
+    <button class="dock-item" type="button" data-open="about"><span class="dock-tip glass">Về tôi</span><span class="app-icon ic1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span></button>
+    <button class="dock-item" type="button" data-open="skills"><span class="dock-tip glass">Kỹ năng</span><span class="app-icon ic3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></button>
+    <button class="dock-item" type="button" data-open="exp"><span class="dock-tip glass">Kinh nghiệm</span><span class="app-icon ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span></button>
+    <button class="dock-item" type="button" data-open="strengths"><span class="dock-tip glass">Điểm mạnh</span><span class="app-icon ic4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span></button>
+    <button class="dock-item" type="button" data-open="edu"><span class="dock-tip glass">Học vấn &amp; Công cụ</span><span class="app-icon ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span></button>
+    <button class="dock-item" type="button" data-open="contact"><span class="dock-tip glass">Liên hệ</span><span class="app-icon ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span></button>
+  </nav>
+
+  <!-- Call bar (mobile) -->
+  <div class="callbar glass">
+    <a class="btn btn-solid" href="tel:0876488047">Gọi ngay</a>
+    <a class="btn btn-glass" href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer">Zalo</a>
+  </div>
+
+  <div class="scrim"></div>
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script5.js"></script>
+</body>
+</html>
