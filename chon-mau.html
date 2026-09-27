@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chọn Mẫu CV — Hiền Phương | Portfolio & CV</title>
+  <meta name="description" content="Khám phá và lựa chọn các phiên bản mẫu CV & Portfolio chuyên nghiệp của Hiền Phương - Nhân Viên Kinh Doanh." />
+  <meta name="author" content="Hiền Phương" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-color: #0D0D0D;
+      --card-bg: rgba(22, 22, 26, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(255, 255, 255, 0.22);
+      
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --text-sub: #6B7280;
+
+      --navy-accent: #38BDF8;
+      --navy-glow: rgba(56, 189, 248, 0.18);
+      
+      --crimson-accent: #EF4444;
+      --crimson-glow: rgba(239, 68, 68, 0.18);
+
+      --emerald-accent: #10B981;
+      --emerald-glow: rgba(16, 185, 129, 0.22);
+
+      --gold-accent: #E3A93B;
+      --gold-glow: rgba(227, 169, 59, 0.22);
+
+      --glass-accent: #7CC4F0;
+      --glass-glow: rgba(124, 196, 240, 0.25);
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-title: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .glow-left {
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, #0284c7 0%, transparent 70%);
+    }
+    .glow-center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, #059669 0%, transparent 70%);
+      opacity: 0.18;
+    }
+    .glow-right {
+      bottom: -100px;
+      right: -100px;
+      background: radial-gradient(circle, #e11d48 0%, transparent 70%);
+    }
+    .glow-gold {
+      top: 20%;
+      right: 15%;
+      background: radial-gradient(circle, #e3a93b 0%, transparent 70%);
+      opacity: 0.18;
+    }
+
+    /* Subtle Grid Background Pattern */
+    .grid-pattern {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 48px 20px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       HEADER SECTION
+       ========================================================================== */
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #D1D5DB;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .main-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-title {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .sub-title strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       GALLERY CARDS GRID
+       ========================================================================== */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(16px);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* Ẩn các mẫu 1-4, chỉ hiện mẫu 5 (giữ nguyên code, không xóa) */
+    .template-card:not(.card-glass) {
+      display: none !important;
+    }
+
+    .template-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .template-card.card-navy:hover {
+      box-shadow: 0 20px 40px -15px var(--navy-glow);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .template-card.card-do-den:hover {
+      box-shadow: 0 20px 40px -15px var(--crimson-glow);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .template-card.card-emerald:hover {
+      box-shadow: 0 20px 40px -15px var(--emerald-glow);
+      border-color: rgba(52, 211, 153, 0.4);
+    }
+
+    .template-card.card-developer:hover {
+      box-shadow: 0 20px 40px -15px var(--gold-glow);
+      border-color: rgba(227, 169, 59, 0.45);
+    }
+
+    .template-card.card-glass:hover {
+      box-shadow: 0 20px 40px -15px var(--glass-glow);
+      border-color: rgba(124, 196, 240, 0.45);
+    }
+
+    /* Card Preview / Thumbnail */
+    .card-preview {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #121216;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    /* Mock visual background for preview */
+    .preview-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      transition: transform 0.5s ease;
+    }
+
+    .template-card:hover .preview-bg {
+      transform: scale(1.04);
+    }
+
+    .navy-preview-bg {
+      background: radial-gradient(circle at 70% 30%, #1e3a8a 0%, #0a1128 60%, #050a18 100%);
+    }
+
+    .doden-preview-bg {
+      background: radial-gradient(circle at 30% 30%, #450a0a 0%, #170505 60%, #0a0a0a 100%);
+    }
+
+    .emerald-preview-bg {
+      background: radial-gradient(circle at 50% 30%, #064e3b 0%, #06281e 60%, #05140f 100%);
+    }
+
+    .developer-preview-bg {
+      background: radial-gradient(circle at 50% 30%, #2e2214 0%, #191309 60%, #0e0b08 100%);
+    }
+
+    .glass-preview-bg {
+      background: radial-gradient(circle at 50% 30%, #153e5c 0%, #0d2235 60%, #0a0f14 100%);
+    }
+
+    /* Inner Preview Mockup Layout */
+    .preview-mockup {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 90%;
+      height: 75%;
+      background: rgba(13, 13, 16, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .mockup-avatar-wrap {
+      width: 70px;
+      height: 90px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #1f2937;
+      position: relative;
+    }
+
+    .card-navy .mockup-avatar-wrap {
+      border: 2px solid #38bdf8;
+    }
+
+    .card-do-den .mockup-avatar-wrap {
+      border: 2px solid #ef4444;
+    }
+
+    .card-emerald .mockup-avatar-wrap {
+      border: 2px solid #10b981;
+    }
+
+    .card-developer .mockup-avatar-wrap {
+      border: 2px solid #e3a93b;
+    }
+
+    .card-glass .mockup-avatar-wrap {
+      border: 2px solid #7cc4f0;
+    }
+
+    .mockup-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .mockup-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      overflow: hidden;
+    }
+
+    .mockup-tag {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .card-navy .mockup-tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+
+    .card-do-den .mockup-tag {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+
+    .card-emerald .mockup-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+    }
+
+    .card-developer .mockup-tag {
+      background: rgba(227, 169, 59, 0.18);
+      color: #f0bb55;
+    }
+
+    .card-glass .mockup-tag {
+      background: rgba(124, 196, 240, 0.18);
+      color: #7cc4f0;
+    }
+
+    .mockup-name {
+      font-family: var(--font-title);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mockup-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .mockup-line {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+    }
+    .mockup-line.w-80 { width: 80%; }
+    .mockup-line.w-60 { width: 60%; }
+    .mockup-line.w-40 { width: 40%; }
+
+    /* Card Content */
+    .card-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .card-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pill-navy {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .pill-crimson {
+      background: rgba(239, 68, 68, 0.12);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .pill-emerald {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pill-developer {
+      background: rgba(227, 169, 59, 0.15);
+      color: #F0BB55;
+      border: 1px solid rgba(227, 169, 59, 0.35);
+    }
+
+    .pill-glass {
+      background: rgba(124, 196, 240, 0.15);
+      color: #7cc4f0;
+      border: 1px solid rgba(124, 196, 240, 0.35);
+    }
+
+    .card-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .tag-item {
+      font-size: 0.65rem;
+      color: #D1D5DB;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 7px;
+      border-radius: 5px;
+    }
+
+    /* Card Action Button */
+    .btn-view {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-navy {
+      background: linear-gradient(135deg, #1E40AF 0%, #0284C7 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-navy:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-crimson {
+      background: linear-gradient(135deg, #991B1B 0%, #E11D48 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+    }
+    .btn-crimson:hover {
+      background: linear-gradient(135deg, #B91C1C 0%, #F43F5E 100%);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-emerald {
+      background: linear-gradient(135deg, #065F46 0%, #059669 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+    }
+    .btn-emerald:hover {
+      background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-developer {
+      background: linear-gradient(135deg, #A9762B 0%, #E3A93B 100%);
+      color: #0E0B08;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(227, 169, 59, 0.25);
+    }
+    .btn-developer:hover {
+      background: linear-gradient(135deg, #E3A93B 0%, #F0BB55 100%);
+      box-shadow: 0 6px 20px rgba(227, 169, 59, 0.45);
+      color: #0E0B08;
+    }
+
+    .btn-glass {
+      background: linear-gradient(135deg, #1d5f8a 0%, #0284c7 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-glass:hover {
+      background: linear-gradient(135deg, #0284c7 0%, #7cc4f0 100%);
+      box-shadow: 0 6px 20px rgba(124, 196, 240, 0.45);
+      color: #0A0F14;
+    }
+
+    .btn-view .arrow-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .template-card:hover .btn-view .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       FOOTER & QUICK CONTACT
+       ========================================================================== */
+    .gallery-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 24px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-contact a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--text-sub);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 1400px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 32px 16px;
+      }
+      .gallery-header {
+        margin-bottom: 32px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .card-preview {
+        height: 210px;
+      }
+      .card-content {
+        padding: 18px;
+      }
+      .footer-contact {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-left"></div>
+  <div class="ambient-glow glow-center"></div>
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-right"></div>
+  <div class="grid-pattern"></div>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Gallery Header -->
+    <header class="gallery-header">
+      <div class="badge-status">
+        <span class="status-dot"></span>
+        SẴN SÀNG NHẬN VIỆC • PORTFOLIO &amp; CV COLLECTION
+      </div>
+      <h1 class="main-title">Chọn mẫu CV &amp; Portfolio</h1>
+      <p class="sub-title">
+        Bộ sưu tập các phiên bản mẫu CV &amp; Portfolio chuyên nghiệp, đa phong cách với hiệu ứng tương tác cao cấp và responsive hoàn hảo.
+      </p>
+    </header>
+
+    <!-- 4 Cards Gallery Grid -->
+    <section class="cards-grid">
+      
+      <!-- Card 1: Mẫu 1 - Navy (Tạm ẩn) -->
+      <article class="template-card card-navy" style="display: none;" hidden>
+        <div class="card-preview">
+          <div class="preview-bg navy-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-1-navy/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Navy" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Navy Poster</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 1 — Navy</h2>
+            <span class="card-pill pill-navy">Poster Style</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Poster &amp; Editorial ấn tượng, màu xanh Navy hiện đại kết hợp bố cục dòng thời gian và điểm nhấn thị giác mạnh mẽ.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Xanh Navy</span>
+            <span class="tag-item">Bố cục Poster</span>
+            <span class="tag-item">Timeline Kinh nghiệm</span>
+          </div>
+          <a href="templates/mau-1-navy/" class="btn-view btn-navy">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Mẫu 2 - Đỏ Đen (Tạm ẩn) -->
+      <article class="template-card card-do-den" style="display: none;" hidden>
+        <div class="card-preview">
+          <div class="preview-bg doden-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-2-do-den/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Đỏ Đen" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Dark Cyber</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 2 — Đỏ Đen</h2>
+            <span class="card-pill pill-crimson">Dark Cyber</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Dark Modern &amp; Công nghệ với tông Đỏ Đen tương phản cao, khung Viewfinder và bố cục 2 cột tinh tế, chuyên nghiệp.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Đen &amp; Đỏ</span>
+            <span class="tag-item">Bố cục 2 cột Grid</span>
+            <span class="tag-item">Khung Viewfinder Tech</span>
+          </div>
+          <a href="templates/mau-2-do-den/" class="btn-view btn-crimson">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: Mẫu 3 - Emerald Bento (Tạm ẩn) -->
+      <article class="template-card card-emerald" style="display: none;" hidden>
+        <div class="card-preview">
+          <div class="preview-bg emerald-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-3-emerald/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Emerald" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Emerald Bento</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 3 — Emerald</h2>
+            <span class="card-pill pill-emerald">Executive Bento</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Executive Bento Grid sang trọng với tông Xanh Ngọc Lục Bảo &amp; Slate, lọc kinh nghiệm tương tác và hỗ trợ In/Xuất PDF chuẩn A4.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Xanh Emerald</span>
+            <span class="tag-item">Bento Grid Đa Tầng</span>
+            <span class="tag-item">Tối ưu In / Xuất PDF</span>
+          </div>
+          <a href="templates/mau-3-emerald/" class="btn-view btn-emerald">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4: Mẫu 4 - Dark Gold Developer (Tạm ẩn) -->
+      <article class="template-card card-developer" style="display: none;" hidden>
+        <div class="card-preview">
+          <div class="preview-bg developer-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-4-developer/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Gold Dark" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Gold Dark UI</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 4 — Dark Gold</h2>
+            <span class="card-pill pill-developer">Gold Dark UI</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Modern Dark Developer cao cấp với bảng màu Warm Dark Gold + Terracotta, công nghệ Tailwind CSS, bố cục thoáng đãng và hiệu ứng glow ấn tượng.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Tone Warm Gold &amp; Đen</span>
+            <span class="tag-item">HTML + Tailwind CSS</span>
+            <span class="tag-item">Developer Dark Aesthetic</span>
+          </div>
+          <a href="templates/mau-4-developer/" class="btn-view btn-developer">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5: Mẫu 5 - Liquid Glass Desktop -->
+      <article class="template-card card-glass">
+        <div class="card-preview">
+          <div class="preview-bg glass-preview-bg"></div>
+          <div class="preview-mockup">
+            <div class="mockup-avatar-wrap">
+              <img src="templates/mau-5-glass/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Liquid Glass" class="mockup-avatar" />
+            </div>
+            <div class="mockup-content">
+              <span class="mockup-tag">Liquid Glass OS</span>
+              <span class="mockup-name">HIỀN PHƯƠNG</span>
+              <div class="mockup-lines">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header-row">
+            <h2 class="card-title">Mẫu 5 — Liquid Glass</h2>
+            <span class="card-pill pill-glass">Desktop OS</span>
+          </div>
+          <p class="card-desc">
+            Phong cách Liquid Glass Desktop OS độc đáo với cửa sổ kính kéo thả, Dock ứng dụng, chế độ Ngày / Đêm mượt mà, tối ưu In/PDF và giao diện Mobile Sheet.
+          </p>
+          <div class="card-tags">
+            <span class="tag-item">Giao diện Kính OS</span>
+            <span class="tag-item">Kéo thả Cửa sổ</span>
+            <span class="tag-item">Ngày / Đêm (Biển sương)</span>
+          </div>
+          <a href="templates/mau-5-glass/index.html" class="btn-view btn-glass">
+            Xem mẫu này
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="gallery-footer">
+    <div class="footer-contact">
+      <a href="tel:0876488047">📞 087 6488 047</a>
+      <a href="mailto:hphuong123123@gmail.com">✉️ hphuong123123@gmail.com</a>
+      <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer">💬 Zalo Hiền Phương</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Portfolio &amp; CV Collection. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

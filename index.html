@@ -1,912 +1,298 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="light" data-palette="ocean">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chọn Mẫu CV — Hiền Phương | Portfolio & CV</title>
-  <meta name="description" content="Khám phá và lựa chọn các phiên bản mẫu CV & Portfolio chuyên nghiệp của Hiền Phương - Nhân Viên Kinh Doanh." />
+  <title>Hiền Phương — Nhân Viên Kinh Doanh | Liquid Glass Portfolio &amp; CV</title>
+  <meta name="description" content="Portfolio &amp; CV cá nhân của Hiền Phương - Nhân Viên Kinh Doanh với hơn 3 năm kinh nghiệm thực chiến tư vấn bán hàng đa kênh, mở rộng tệp khách hàng B2B/B2C và quản lý đơn hàng sàn TMĐT." />
   <meta name="author" content="Hiền Phương" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ==========================================================================
-       CSS VARIABLES & RESET
-       ========================================================================== */
-    :root {
-      --bg-color: #0D0D0D;
-      --card-bg: rgba(22, 22, 26, 0.75);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(255, 255, 255, 0.22);
-      
-      --text-main: #F3F4F6;
-      --text-muted: #9CA3AF;
-      --text-sub: #6B7280;
-
-      --navy-accent: #38BDF8;
-      --navy-glow: rgba(56, 189, 248, 0.18);
-      
-      --crimson-accent: #EF4444;
-      --crimson-glow: rgba(239, 68, 68, 0.18);
-
-      --emerald-accent: #10B981;
-      --emerald-glow: rgba(16, 185, 129, 0.22);
-
-      --gold-accent: #E3A93B;
-      --gold-glow: rgba(227, 169, 59, 0.22);
-
-      --glass-accent: #7CC4F0;
-      --glass-glow: rgba(124, 196, 240, 0.25);
-
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-title: 'Space Grotesk', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow-x: hidden;
-      position: relative;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      filter: blur(140px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.35;
-    }
-    .glow-left {
-      top: -100px;
-      left: -100px;
-      background: radial-gradient(circle, #0284c7 0%, transparent 70%);
-    }
-    .glow-center {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, #059669 0%, transparent 70%);
-      opacity: 0.18;
-    }
-    .glow-right {
-      bottom: -100px;
-      right: -100px;
-      background: radial-gradient(circle, #e11d48 0%, transparent 70%);
-    }
-    .glow-gold {
-      top: 20%;
-      right: 15%;
-      background: radial-gradient(circle, #e3a93b 0%, transparent 70%);
-      opacity: 0.18;
-    }
-
-    /* Subtle Grid Background Pattern */
-    .grid-pattern {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Main Container */
-    .container {
-      width: 100%;
-      max-width: 1560px;
-      margin: 0 auto;
-      padding: 48px 20px;
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* ==========================================================================
-       HEADER SECTION
-       ========================================================================== */
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .badge-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 6px 14px;
-      border-radius: 9999px;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: #D1D5DB;
-      letter-spacing: 0.03em;
-      margin-bottom: 18px;
-      backdrop-filter: blur(8px);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #10B981;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #10B981;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
-
-    .main-title {
-      font-family: var(--font-title);
-      font-size: clamp(2.25rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 14px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .sub-title {
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      color: var(--text-muted);
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .sub-title strong {
-      color: #FFFFFF;
-      font-weight: 600;
-    }
-
-    /* ==========================================================================
-       GALLERY CARDS GRID
-       ========================================================================== */
-    .cards-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-
-    .template-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(16px);
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-    }
-
-    /* Ẩn các mẫu 1-4, chỉ hiện mẫu 5 (giữ nguyên code, không xóa) */
-    .template-card:not(.card-glass) {
-      display: none !important;
-    }
-
-    .template-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-    }
-
-    .template-card.card-navy:hover {
-      box-shadow: 0 20px 40px -15px var(--navy-glow);
-      border-color: rgba(56, 189, 248, 0.4);
-    }
-
-    .template-card.card-do-den:hover {
-      box-shadow: 0 20px 40px -15px var(--crimson-glow);
-      border-color: rgba(239, 68, 68, 0.4);
-    }
-
-    .template-card.card-emerald:hover {
-      box-shadow: 0 20px 40px -15px var(--emerald-glow);
-      border-color: rgba(52, 211, 153, 0.4);
-    }
-
-    .template-card.card-developer:hover {
-      box-shadow: 0 20px 40px -15px var(--gold-glow);
-      border-color: rgba(227, 169, 59, 0.45);
-    }
-
-    .template-card.card-glass:hover {
-      box-shadow: 0 20px 40px -15px var(--glass-glow);
-      border-color: rgba(124, 196, 240, 0.45);
-    }
-
-    /* Card Preview / Thumbnail */
-    .card-preview {
-      width: 100%;
-      height: 220px;
-      position: relative;
-      overflow: hidden;
-      background: #121216;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    /* Mock visual background for preview */
-    .preview-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center top;
-      transition: transform 0.5s ease;
-    }
-
-    .template-card:hover .preview-bg {
-      transform: scale(1.04);
-    }
-
-    .navy-preview-bg {
-      background: radial-gradient(circle at 70% 30%, #1e3a8a 0%, #0a1128 60%, #050a18 100%);
-    }
-
-    .doden-preview-bg {
-      background: radial-gradient(circle at 30% 30%, #450a0a 0%, #170505 60%, #0a0a0a 100%);
-    }
-
-    .emerald-preview-bg {
-      background: radial-gradient(circle at 50% 30%, #064e3b 0%, #06281e 60%, #05140f 100%);
-    }
-
-    .developer-preview-bg {
-      background: radial-gradient(circle at 50% 30%, #2e2214 0%, #191309 60%, #0e0b08 100%);
-    }
-
-    .glass-preview-bg {
-      background: radial-gradient(circle at 50% 30%, #153e5c 0%, #0d2235 60%, #0a0f14 100%);
-    }
-
-    /* Inner Preview Mockup Layout */
-    .preview-mockup {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 90%;
-      height: 75%;
-      background: rgba(13, 13, 16, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    .mockup-avatar-wrap {
-      width: 70px;
-      height: 90px;
-      border-radius: 8px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: #1f2937;
-      position: relative;
-    }
-
-    .card-navy .mockup-avatar-wrap {
-      border: 2px solid #38bdf8;
-    }
-
-    .card-do-den .mockup-avatar-wrap {
-      border: 2px solid #ef4444;
-    }
-
-    .card-emerald .mockup-avatar-wrap {
-      border: 2px solid #10b981;
-    }
-
-    .card-developer .mockup-avatar-wrap {
-      border: 2px solid #e3a93b;
-    }
-
-    .card-glass .mockup-avatar-wrap {
-      border: 2px solid #7cc4f0;
-    }
-
-    .mockup-avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .mockup-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      overflow: hidden;
-    }
-
-    .mockup-tag {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 4px;
-      width: fit-content;
-    }
-
-    .card-navy .mockup-tag {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-    }
-
-    .card-do-den .mockup-tag {
-      background: rgba(239, 68, 68, 0.15);
-      color: #ef4444;
-    }
-
-    .card-emerald .mockup-tag {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-    }
-
-    .card-developer .mockup-tag {
-      background: rgba(227, 169, 59, 0.18);
-      color: #f0bb55;
-    }
-
-    .card-glass .mockup-tag {
-      background: rgba(124, 196, 240, 0.18);
-      color: #7cc4f0;
-    }
-
-    .mockup-name {
-      font-family: var(--font-title);
-      font-size: 0.9375rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      line-height: 1.2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .mockup-lines {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-top: 2px;
-    }
-
-    .mockup-line {
-      height: 4px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 2px;
-    }
-    .mockup-line.w-80 { width: 80%; }
-    .mockup-line.w-60 { width: 60%; }
-    .mockup-line.w-40 { width: 40%; }
-
-    /* Card Content */
-    .card-content {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .card-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .card-title {
-      font-family: var(--font-title);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #FFFFFF;
-    }
-
-    .card-pill {
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .pill-navy {
-      background: rgba(56, 189, 248, 0.12);
-      color: #38BDF8;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-    }
-
-    .pill-crimson {
-      background: rgba(239, 68, 68, 0.12);
-      color: #EF4444;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .pill-emerald {
-      background: rgba(16, 185, 129, 0.12);
-      color: #34D399;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-    }
-
-    .pill-developer {
-      background: rgba(227, 169, 59, 0.15);
-      color: #F0BB55;
-      border: 1px solid rgba(227, 169, 59, 0.35);
-    }
-
-    .pill-glass {
-      background: rgba(124, 196, 240, 0.15);
-      color: #7cc4f0;
-      border: 1px solid rgba(124, 196, 240, 0.35);
-    }
-
-    .card-desc {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 18px;
-    }
-
-    .tag-item {
-      font-size: 0.65rem;
-      color: #D1D5DB;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 3px 7px;
-      border-radius: 5px;
-    }
-
-    /* Card Action Button */
-    .btn-view {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 11px 16px;
-      border-radius: 10px;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-
-    .btn-navy {
-      background: linear-gradient(135deg, #1E40AF 0%, #0284C7 100%);
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
-    }
-    .btn-navy:hover {
-      background: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);
-      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
-      color: #FFFFFF;
-    }
-
-    .btn-crimson {
-      background: linear-gradient(135deg, #991B1B 0%, #E11D48 100%);
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
-    }
-    .btn-crimson:hover {
-      background: linear-gradient(135deg, #B91C1C 0%, #F43F5E 100%);
-      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
-      color: #FFFFFF;
-    }
-
-    .btn-emerald {
-      background: linear-gradient(135deg, #065F46 0%, #059669 100%);
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
-    }
-    .btn-emerald:hover {
-      background: linear-gradient(135deg, #059669 0%, #10B981 100%);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-      color: #FFFFFF;
-    }
-
-    .btn-developer {
-      background: linear-gradient(135deg, #A9762B 0%, #E3A93B 100%);
-      color: #0E0B08;
-      font-weight: 700;
-      box-shadow: 0 4px 14px rgba(227, 169, 59, 0.25);
-    }
-    .btn-developer:hover {
-      background: linear-gradient(135deg, #E3A93B 0%, #F0BB55 100%);
-      box-shadow: 0 6px 20px rgba(227, 169, 59, 0.45);
-      color: #0E0B08;
-    }
-
-    .btn-glass {
-      background: linear-gradient(135deg, #1d5f8a 0%, #0284c7 100%);
-      color: #FFFFFF;
-      font-weight: 700;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
-    }
-    .btn-glass:hover {
-      background: linear-gradient(135deg, #0284c7 0%, #7cc4f0 100%);
-      box-shadow: 0 6px 20px rgba(124, 196, 240, 0.45);
-      color: #0A0F14;
-    }
-
-    .btn-view .arrow-icon {
-      transition: transform 0.2s ease;
-    }
-
-    .template-card:hover .btn-view .arrow-icon {
-      transform: translateX(4px);
-    }
-
-    /* ==========================================================================
-       FOOTER & QUICK CONTACT
-       ========================================================================== */
-    .gallery-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 24px 0;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-contact {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-      font-size: 0.875rem;
-    }
-
-    .footer-contact a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .footer-contact a:hover {
-      color: #FFFFFF;
-    }
-
-    .footer-copy {
-      font-size: 0.8125rem;
-      color: var(--text-sub);
-    }
-
-    /* ==========================================================================
-       RESPONSIVE DESIGN
-       ========================================================================== */
-    @media (max-width: 1400px) {
-      .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        padding: 32px 16px;
-      }
-      .gallery-header {
-        margin-bottom: 32px;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .card-preview {
-        height: 210px;
-      }
-      .card-content {
-        padding: 18px;
-      }
-      .footer-contact {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+  <meta name="theme-color" content="#eef2f5" />
+  <script>
+    (function () {
+      var t; try { t = localStorage.getItem('hp-glass-theme'); } catch (e) {}
+      if (!t) t = "auto";
+      if (t === 'auto') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var c; try { c = localStorage.getItem('hp-glass-clear'); } catch (e) {}
+      if (c === null || isNaN(+c)) c = 45;
+      document.documentElement.style.setProperty('--clear', (+c / 100).toFixed(2));
+    })();
+  </script>
+    <!-- Mẫu 5 Liquid Glass (font tự host: assets/fonts/fonts.css) -->
+  <link rel="stylesheet" href="/assets/style5.css" />
 </head>
 <body>
 
-  <!-- Ambient Glow Backgrounds -->
-  <div class="ambient-glow glow-left"></div>
-  <div class="ambient-glow glow-center"></div>
-  <div class="ambient-glow glow-gold"></div>
-  <div class="ambient-glow glow-right"></div>
-  <div class="grid-pattern"></div>
+  <div class="mesh" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
 
-  <!-- Main Container -->
-  <main class="container">
-    
-    <!-- Gallery Header -->
-    <header class="gallery-header">
-      <div class="badge-status">
-        <span class="status-dot"></span>
-        SẴN SÀNG NHẬN VIỆC • PORTFOLIO &amp; CV COLLECTION
+  <!-- Menu bar -->
+  <header class="menubar">
+    <div class="menubar-left">
+      <a class="brand" href="#" data-open="about" aria-label="Mở hồ sơ"><span class="brand-mark">HP</span><span class="brand-name">HIỀN PHƯƠNG</span></a>
+              <a class="menu-link" href="#" data-open="about">Về tôi</a>
+              <a class="menu-link" href="#" data-open="skills">Kỹ năng</a>
+              <a class="menu-link" href="#" data-open="exp">Kinh nghiệm</a>
+              <a class="menu-link" href="#" data-open="strengths">Điểm mạnh</a>
+              <a class="menu-link" href="#" data-open="edu">Học vấn</a>
+              <a class="menu-link" href="#" data-open="contact">Liên hệ</a>
+          </div>
+    <div class="menubar-right">
+              <span class="status"><span class="status-dot"></span>Sẵn sàng nhận việc</span>
+                    <a class="menu-btn" href="CV-Hien-Phuong.pdf" download title="Tải CV dạng PDF">Tải CV</a>
+            <button class="menu-btn" id="btnPrintCV" type="button" title="In hoặc lưu hồ sơ dạng PDF">In / PDF</button>
+      <span class="clock" id="clock"></span>
+      <div class="clear-wrap">
+        <button class="clear-btn" id="clearBtn" type="button" aria-label="Điều chỉnh độ trong suốt" aria-expanded="false" aria-controls="clearPop" title="Độ trong suốt"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path class="fill" d="M12 3.5a8.5 8.5 0 0 1 0 17z"></path></svg></button>
+        <div class="clear-pop glass" id="clearPop" role="dialog" aria-label="Độ trong suốt">
+          <div class="cp-head"><span>Độ trong suốt</span><output id="clearVal" for="clearRange">45%</output></div>
+          <input class="cp-range" id="clearRange" type="range" min="0" max="100" step="1" value="45" aria-label="Độ trong suốt" />
+          <div class="cp-presets" role="group" aria-label="Mức có sẵn">
+            <button type="button" data-clear="12">Mờ đục</button>
+            <button type="button" data-clear="45">Cân bằng</button>
+            <button type="button" data-clear="85">Trong suốt</button>
+          </div>
+        </div>
       </div>
-      <h1 class="main-title">Chọn mẫu CV &amp; Portfolio</h1>
-      <p class="sub-title">
-        Bộ sưu tập các phiên bản mẫu CV &amp; Portfolio chuyên nghiệp, đa phong cách với hiệu ứng tương tác cao cấp và responsive hoàn hảo.
-      </p>
-    </header>
-
-    <!-- 4 Cards Gallery Grid -->
-    <section class="cards-grid">
-      
-      <!-- Card 1: Mẫu 1 - Navy (Tạm ẩn) -->
-      <article class="template-card card-navy" style="display: none;" hidden>
-        <div class="card-preview">
-          <div class="preview-bg navy-preview-bg"></div>
-          <div class="preview-mockup">
-            <div class="mockup-avatar-wrap">
-              <img src="templates/mau-1-navy/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Navy" class="mockup-avatar" />
-            </div>
-            <div class="mockup-content">
-              <span class="mockup-tag">Navy Poster</span>
-              <span class="mockup-name">HIỀN PHƯƠNG</span>
-              <div class="mockup-lines">
-                <div class="mockup-line w-80"></div>
-                <div class="mockup-line w-60"></div>
-                <div class="mockup-line w-40"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <div class="card-header-row">
-            <h2 class="card-title">Mẫu 1 — Navy</h2>
-            <span class="card-pill pill-navy">Poster Style</span>
-          </div>
-          <p class="card-desc">
-            Phong cách Poster &amp; Editorial ấn tượng, màu xanh Navy hiện đại kết hợp bố cục dòng thời gian và điểm nhấn thị giác mạnh mẽ.
-          </p>
-          <div class="card-tags">
-            <span class="tag-item">Tone Xanh Navy</span>
-            <span class="tag-item">Bố cục Poster</span>
-            <span class="tag-item">Timeline Kinh nghiệm</span>
-          </div>
-          <a href="templates/mau-1-navy/" class="btn-view btn-navy">
-            Xem mẫu này
-            <span class="arrow-icon">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Card 2: Mẫu 2 - Đỏ Đen (Tạm ẩn) -->
-      <article class="template-card card-do-den" style="display: none;" hidden>
-        <div class="card-preview">
-          <div class="preview-bg doden-preview-bg"></div>
-          <div class="preview-mockup">
-            <div class="mockup-avatar-wrap">
-              <img src="templates/mau-2-do-den/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Đỏ Đen" class="mockup-avatar" />
-            </div>
-            <div class="mockup-content">
-              <span class="mockup-tag">Dark Cyber</span>
-              <span class="mockup-name">HIỀN PHƯƠNG</span>
-              <div class="mockup-lines">
-                <div class="mockup-line w-80"></div>
-                <div class="mockup-line w-60"></div>
-                <div class="mockup-line w-40"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <div class="card-header-row">
-            <h2 class="card-title">Mẫu 2 — Đỏ Đen</h2>
-            <span class="card-pill pill-crimson">Dark Cyber</span>
-          </div>
-          <p class="card-desc">
-            Phong cách Dark Modern &amp; Công nghệ với tông Đỏ Đen tương phản cao, khung Viewfinder và bố cục 2 cột tinh tế, chuyên nghiệp.
-          </p>
-          <div class="card-tags">
-            <span class="tag-item">Tone Đen &amp; Đỏ</span>
-            <span class="tag-item">Bố cục 2 cột Grid</span>
-            <span class="tag-item">Khung Viewfinder Tech</span>
-          </div>
-          <a href="templates/mau-2-do-den/" class="btn-view btn-crimson">
-            Xem mẫu này
-            <span class="arrow-icon">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Card 3: Mẫu 3 - Emerald Bento (Tạm ẩn) -->
-      <article class="template-card card-emerald" style="display: none;" hidden>
-        <div class="card-preview">
-          <div class="preview-bg emerald-preview-bg"></div>
-          <div class="preview-mockup">
-            <div class="mockup-avatar-wrap">
-              <img src="templates/mau-3-emerald/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Emerald" class="mockup-avatar" />
-            </div>
-            <div class="mockup-content">
-              <span class="mockup-tag">Emerald Bento</span>
-              <span class="mockup-name">HIỀN PHƯƠNG</span>
-              <div class="mockup-lines">
-                <div class="mockup-line w-80"></div>
-                <div class="mockup-line w-60"></div>
-                <div class="mockup-line w-40"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <div class="card-header-row">
-            <h2 class="card-title">Mẫu 3 — Emerald</h2>
-            <span class="card-pill pill-emerald">Executive Bento</span>
-          </div>
-          <p class="card-desc">
-            Phong cách Executive Bento Grid sang trọng với tông Xanh Ngọc Lục Bảo &amp; Slate, lọc kinh nghiệm tương tác và hỗ trợ In/Xuất PDF chuẩn A4.
-          </p>
-          <div class="card-tags">
-            <span class="tag-item">Tone Xanh Emerald</span>
-            <span class="tag-item">Bento Grid Đa Tầng</span>
-            <span class="tag-item">Tối ưu In / Xuất PDF</span>
-          </div>
-          <a href="templates/mau-3-emerald/" class="btn-view btn-emerald">
-            Xem mẫu này
-            <span class="arrow-icon">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Card 4: Mẫu 4 - Dark Gold Developer (Tạm ẩn) -->
-      <article class="template-card card-developer" style="display: none;" hidden>
-        <div class="card-preview">
-          <div class="preview-bg developer-preview-bg"></div>
-          <div class="preview-mockup">
-            <div class="mockup-avatar-wrap">
-              <img src="templates/mau-4-developer/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Gold Dark" class="mockup-avatar" />
-            </div>
-            <div class="mockup-content">
-              <span class="mockup-tag">Gold Dark UI</span>
-              <span class="mockup-name">HIỀN PHƯƠNG</span>
-              <div class="mockup-lines">
-                <div class="mockup-line w-80"></div>
-                <div class="mockup-line w-60"></div>
-                <div class="mockup-line w-40"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <div class="card-header-row">
-            <h2 class="card-title">Mẫu 4 — Dark Gold</h2>
-            <span class="card-pill pill-developer">Gold Dark UI</span>
-          </div>
-          <p class="card-desc">
-            Phong cách Modern Dark Developer cao cấp với bảng màu Warm Dark Gold + Terracotta, công nghệ Tailwind CSS, bố cục thoáng đãng và hiệu ứng glow ấn tượng.
-          </p>
-          <div class="card-tags">
-            <span class="tag-item">Tone Warm Gold &amp; Đen</span>
-            <span class="tag-item">HTML + Tailwind CSS</span>
-            <span class="tag-item">Developer Dark Aesthetic</span>
-          </div>
-          <a href="templates/mau-4-developer/" class="btn-view btn-developer">
-            Xem mẫu này
-            <span class="arrow-icon">→</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Card 5: Mẫu 5 - Liquid Glass Desktop -->
-      <article class="template-card card-glass">
-        <div class="card-preview">
-          <div class="preview-bg glass-preview-bg"></div>
-          <div class="preview-mockup">
-            <div class="mockup-avatar-wrap">
-              <img src="templates/mau-5-glass/assets/hien-phuong.png" alt="Hiền Phương - Mẫu Liquid Glass" class="mockup-avatar" />
-            </div>
-            <div class="mockup-content">
-              <span class="mockup-tag">Liquid Glass OS</span>
-              <span class="mockup-name">HIỀN PHƯƠNG</span>
-              <div class="mockup-lines">
-                <div class="mockup-line w-80"></div>
-                <div class="mockup-line w-60"></div>
-                <div class="mockup-line w-40"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <div class="card-header-row">
-            <h2 class="card-title">Mẫu 5 — Liquid Glass</h2>
-            <span class="card-pill pill-glass">Desktop OS</span>
-          </div>
-          <p class="card-desc">
-            Phong cách Liquid Glass Desktop OS độc đáo với cửa sổ kính kéo thả, Dock ứng dụng, chế độ Ngày / Đêm mượt mà, tối ưu In/PDF và giao diện Mobile Sheet.
-          </p>
-          <div class="card-tags">
-            <span class="tag-item">Giao diện Kính OS</span>
-            <span class="tag-item">Kéo thả Cửa sổ</span>
-            <span class="tag-item">Ngày / Đêm (Biển sương)</span>
-          </div>
-          <a href="templates/mau-5-glass/index.html" class="btn-view btn-glass">
-            Xem mẫu này
-            <span class="arrow-icon">→</span>
-          </a>
-        </div>
-      </article>
-
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="gallery-footer">
-    <div class="footer-contact">
-      <a href="tel:0876488047">📞 087 6488 047</a>
-      <a href="mailto:hphuong123123@gmail.com">✉️ hphuong123123@gmail.com</a>
-      <a href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer">💬 Zalo Hiền Phương</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Chuyển giao diện ngày/đêm" aria-pressed="false"></button>
     </div>
-    <p class="footer-copy">&copy; 2026 Portfolio &amp; CV Collection. All rights reserved.</p>
-  </footer>
+  </header>
 
+  <main class="desk">
+
+    <!-- Mobile home screen -->
+    <section class="home" aria-label="Màn hình chính">
+      <div class="home-card glass">
+        <span class="home-ava">
+          <picture><source srcset="/assets/hien-phuong.webp" type="image/webp"><img class="home-avatar" src="/assets/hien-phuong.png" alt="Chân dung HIỀN PHƯƠNG - Nhân Viên Kinh Doanh" width="800" height="800" draggable="false" /></picture>          <span class="status-dot" aria-hidden="true"></span>        </span>
+        <div>
+          <p class="name">HIỀN PHƯƠNG</p>
+          <p class="role">Nhân Viên Kinh Doanh</p>
+                      <p class="mono muted home-meta">3+ năm · TP. Thủ Đức</p>
+                                <p class="home-status">Sẵn sàng nhận việc</p>
+                  </div>
+                  <p class="home-tag">Nhân viên kinh doanh với hơn 3 năm kinh nghiệm thực chiến tư vấn bán hàng đa kênh, mở rộng tệp khách hàng tiềm năng (B2B/B2C) và quản lý đơn hàng trên sàn thương mại điện tử.</p>
+              </div>
+      <nav class="home-grid" aria-label="Mục hồ sơ">
+                  <button class="home-app" type="button" data-open="about"><span class="app-icon ic1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>Về tôi</button>
+                  <button class="home-app" type="button" data-open="skills"><span class="app-icon ic3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>Kỹ năng</button>
+                  <button class="home-app" type="button" data-open="exp"><span class="app-icon ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>Kinh nghiệm</button>
+                  <button class="home-app" type="button" data-open="strengths"><span class="app-icon ic4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>Điểm mạnh</button>
+                  <button class="home-app" type="button" data-open="edu"><span class="app-icon ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>Học vấn</button>
+                  <button class="home-app" type="button" data-open="contact"><span class="app-icon ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>Liên hệ</button>
+              </nav>
+
+            <!-- Widget chỉ số: chạm để mở "Về tôi" -->
+      <button class="widget widget-stats glass" type="button" data-open="about" aria-label="Chỉ số nổi bật">
+                  <span class="w-stat"><b data-count="3" data-suffix="+">3+</b><small>Năm thực chiến</small></span>
+                  <span class="w-stat"><b data-count="10" data-suffix="+">10+</b><small>KH mới / tháng</small></span>
+                  <span class="w-stat"><b data-count="100" data-suffix="%">100%</b><small>Cam kết KPI</small></span>
+                  <span class="w-stat"><b>Đa kênh</b><small>B2B, Social &amp; TMĐT</small></span>
+              </button>
+      
+            <!-- Widget công việc gần nhất: chạm để mở "Kinh nghiệm" -->
+      <button class="widget widget-job glass" type="button" data-open="exp">
+        <span class="app-icon ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
+        <span class="w-job">
+          <small class="mono muted">Gần nhất · 04/2021 — 12/2024 (3 năm 8 tháng)</small>
+          <b>Nhân Viên Kinh Doanh</b>
+          <span>Công Ty TNHH Kinh Doanh Siêu Việt</span>
+        </span>
+      </button>
+          </section>
+
+        <!-- Window: Về tôi (sections: hero + about) -->
+    <article class="win glass" id="win-about" data-open-on-load="1" aria-label="Về tôi">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Về tôi</h2></div>      <div class="win-body">
+        <div class="profile">
+          <picture><source srcset="/assets/hien-phuong.webp" type="image/webp"><img class="avatar" src="/assets/hien-phuong.png" alt="Chân dung HIỀN PHƯƠNG - Nhân Viên Kinh Doanh" width="800" height="800" draggable="false" /></picture>          <div>
+            <p class="eyebrow">Hello, I&#039;m</p>
+            <h1 class="name">HIỀN PHƯƠNG</h1>
+            <p class="role">Nhân Viên Kinh Doanh</p>
+          </div>
+        </div>
+                  <p class="intro">Nhân viên kinh doanh với hơn 3 năm kinh nghiệm thực chiến tư vấn bán hàng đa kênh, mở rộng tệp khách hàng tiềm năng (B2B/B2C) và quản lý đơn hàng trên sàn thương mại điện tử.</p>
+        
+                      <p class="eyebrow about-eyebrow">01 // MỤC TIÊU NGHỀ NGHIỆP</p>
+                                <p class="win-sub muted">Kế hoạch hành động</p>
+                                <p class="intro intro-quote">“Trong vòng 3 tháng đầu làm việc, tôi đặt mục tiêu trở thành nhân viên chính thức bằng cách đạt doanh số tối thiểu công ty đề ra. Đồng thời, tôi sẽ mở rộng mạng lưới khách hàng tiềm năng bằng cách tiếp cận và thiết lập mối quan hệ với ít nhất 10 khách hàng mới mỗi tháng.”</p>
+                                <p class="intro">Tôi cũng chủ động tìm hiểu và áp dụng các kỹ năng bán hàng hiệu quả để nâng cao năng suất và đạt được kết quả tốt nhất trong công việc.</p>
+          
+                    <div class="commit">
+                          <div class="commit-item"><b>Cam kết chỉ tiêu</b><span>Bám sát KPI doanh số và tiến độ công việc</span></div>
+                          <div class="commit-item"><b>Mở rộng tệp khách hàng</b><span>Thiết lập quan hệ với 10+ đối tác mới/tháng</span></div>
+                      </div>
+          
+                    <div class="stats">
+                          <div class="stat" title="Kinh doanh &amp; Tư vấn bán hàng"><b data-count="3" data-suffix="+">3+</b><span>Năm thực chiến</span></div>
+                          <div class="stat" title="Mục tiêu phát triển tệp khách hàng"><b data-count="10" data-suffix="+">10+</b><span>KH mới / tháng</span></div>
+                          <div class="stat" title="Đạt định mức trong 3 tháng đầu"><b data-count="100" data-suffix="%">100%</b><span>Cam kết KPI</span></div>
+                          <div class="stat stat-text" title="Khai thác khách hàng đa nền tảng"><b>Đa kênh</b><span>B2B, Social &amp; TMĐT</span></div>
+                      </div>
+          
+        <div class="actions">
+                      <a class="btn btn-solid" href="tel:0876488047">Gọi ngay</a>
+                                <a class="btn btn-glass" href="#" data-open="exp">Xem kinh nghiệm</a>
+                                <button class="btn btn-glass" type="button" data-copy="0876488047" data-copy-label="số điện thoại" title="Sao chép số điện thoại">087 6488 047</button>
+                  </div>
+                  <p class="loc loc-about">Trường Thọ, TP. Thủ Đức, TP.HCM</p>
+              </div>
+    </article>
+    
+        <!-- Window: Kỹ năng -->
+    <article class="win glass" id="win-skills" data-open-on-load="1" data-w="lg" aria-label="Kỹ năng cốt lõi">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Kỹ năng cốt lõi</h2></div>      <div class="win-body">
+        <div class="win-intro"><p class="eyebrow">02 // NĂNG LỰC CHUYÊN MÔN</p><p class="win-sub muted">Bộ kỹ năng tư vấn, đàm phán và vận hành kinh doanh thực tế.</p></div>        <div class="cards">
+                      <div class="card">
+              <h3>Kỹ Năng Giao Tiếp</h3>
+              <p>Truyền đạt thông tin rõ ràng, mạch lạc; chủ động lắng nghe và thấu hiểu sâu sắc mong muốn của khách hàng.</p>
+                              <span class="tags">Lắng nghe chủ động · Giao tiếp đa kênh · Thấu cảm</span>
+                          </div>
+                      <div class="card">
+              <h3>Tư Vấn &amp; Thuyết Phục</h3>
+              <p>Nắm vững kiến thức sản phẩm/dịch vụ, đưa ra giải pháp tối ưu phù hợp với từng nhu cầu và ngân sách của khách hàng.</p>
+                              <span class="tags">Tư vấn giải pháp · Đàm phán báo giá · Chốt đơn</span>
+                          </div>
+                      <div class="card">
+              <h3>Tìm Kiếm Khách Hàng</h3>
+              <p>Hiểu rõ thị trường mục tiêu, xác định tệp khách hàng tiềm năng và khai thác qua Social, Trang Vàng, Google Maps.</p>
+                              <span class="tags">Trang Vàng B2B · Google Maps · Social Media</span>
+                          </div>
+                      <div class="card">
+              <h3>Vận Hành &amp; Đơn Hàng</h3>
+              <p>Cập nhật thông tin sản phẩm, quản lý đơn hàng Shopee/Lazada, theo dõi công nợ và chăm sóc khách hàng sau bán.</p>
+                              <span class="tags">Shopee / Lazada · Thu hồi công nợ · After-sales</span>
+                          </div>
+                  </div>
+      </div>
+    </article>
+    
+        <!-- Window: Kinh nghiệm -->
+    <article class="win glass" id="win-exp" data-open-on-load="1" aria-label="Kinh nghiệm làm việc">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Kinh nghiệm làm việc</h2></div>      <div class="win-body">
+        <div class="win-intro"><p class="eyebrow">03 // HÀNH TRÌNH THỰC CHIẾN</p></div>        <ol class="timeline">
+                      <li class="job"><span class="job-dot" style="background:#2f7fb5"></span><div>
+              <span class="job-time">04/2021 — 12/2024 (3 năm 8 tháng)</span>
+              <h3>Nhân Viên Kinh Doanh</h3><span class="job-co">Công Ty TNHH Kinh Doanh Siêu Việt</span>
+                              <ul>
+                                      <li>Chủ động tìm kiếm, mở rộng tệp khách hàng tiềm năng qua các nền tảng mạng xã hội, e-mail,…</li>
+                                      <li>Tư vấn bán hàng, giải đáp các thắc mắc và khiếu nại của khách hàng về sản phẩm/dịch vụ qua Zalo, Facebook, Hotline.</li>
+                                      <li>Cập nhật thông tin sản phẩm và quản lý đơn hàng trên website cùng các sàn thương mại điện tử (Shopee, Lazada).</li>
+                                      <li>Lập báo cáo định kỳ theo tháng về doanh số bán hàng và tình hình kinh doanh.</li>
+                                      <li>Soạn thảo hợp đồng và làm báo giá cho thuê máy photocopy theo mẫu có sẵn.</li>
+                                      <li>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và chương trình ưu đãi theo mẫu trên Canva.</li>
+                                  </ul>
+                                            <span class="tags job-tags">Tư vấn B2B · Sàn Shopee/Lazada · Hợp đồng kinh tế · Canva Design</span>
+                          </div></li>
+                      <li class="job"><span class="job-dot" style="background:#3aa7a0"></span><div>
+              <span class="job-time">03/2025 — 07/2025 (5 tháng)</span>
+              <h3>Nhân Viên Bán Hàng — Trực Page</h3><span class="job-co">Hộ Kinh Doanh 79 Store</span>
+                              <ul>
+                                      <li>Trực page, tư vấn bán hàng, giải đáp thắc mắc và khiếu nại của khách hàng qua Facebook, Zalo.</li>
+                                      <li>Theo dõi, nhắc nhở và thu hồi công nợ đối với khách hàng mua trả góp đúng hạn.</li>
+                                      <li>Chăm sóc khách hàng sau bán hàng nhằm duy trì mối quan hệ và tăng tỷ lệ khách hàng quay lại.</li>
+                                  </ul>
+                                            <span class="tags job-tags">Trực Page FB/Zalo · Quản lý công nợ · Chăm sóc sau bán</span>
+                          </div></li>
+                      <li class="job"><span class="job-dot" style="background:#7c6fd0"></span><div>
+              <span class="job-time">08/2025 — 09/2025</span>
+              <h3>Nhân Viên Kinh Doanh (Thử Việc)</h3><span class="job-co">Công ty TNHH Mr.Rin Group</span>
+                              <ul>
+                                      <li>Chăm sóc, chào hàng qua tin nhắn tệp khách hàng tiềm năng theo data công ty bàn giao.</li>
+                                      <li>Chủ động học hỏi, nắm bắt đặc tính kỹ thuật sản phẩm và nhận biết chính xác mã hàng.</li>
+                                  </ul>
+                                            <span class="tags job-tags">Xử lý Data nóng · Nắm bắt thông số kỹ thuật</span>
+                          </div></li>
+                      <li class="job"><span class="job-dot" style="background:#d98a4e"></span><div>
+              <span class="job-time">09/2025 — 11/2025</span>
+              <h3>Nhân Viên Kinh Doanh (Thử Việc)</h3><span class="job-co">Công ty TNHH TM Điện Thái Dương — Thadeco</span>
+                              <ul>
+                                      <li>Tìm kiếm và khai thác danh sách khách hàng doanh nghiệp qua Trang Vàng, Google Maps.</li>
+                                      <li>Tư vấn giải pháp sản phẩm và gửi báo giá chi tiết cho khách hàng qua Zalo.</li>
+                                  </ul>
+                                            <span class="tags job-tags">Trang Vàng B2B · Google Maps · Báo giá Zalo</span>
+                          </div></li>
+                  </ol>
+      </div>
+    </article>
+    
+        <!-- Window: Điểm mạnh -->
+    <article class="win glass" id="win-strengths" aria-label="Điểm mạnh &amp; Kỷ luật">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Điểm mạnh &amp; Kỷ luật</h2></div>      <div class="win-body">
+        <div class="win-intro"><p class="eyebrow">04 // PHẨM CHẤT NỔI BẬT</p></div>        <div class="cards one">
+                      <div class="card"><h3>Chịu Áp Lực Cao</h3><p>Khả năng làm việc tốt dưới áp lực chỉ tiêu doanh số và tiến độ công việc, duy trì năng lượng tích cực và sự tập trung cao độ.</p></div>
+                      <div class="card"><h3>Kiên Nhẫn &amp; Bền Bỉ</h3><p>Chủ động theo sát, chăm sóc và nuôi dưỡng tệp khách hàng tiềm năng, không nản lòng trước các thương vụ kéo dài.</p></div>
+                      <div class="card"><h3>Tinh Thần Tự Học Hỏi</h3><p>Nhanh nhạy cập nhật kiến thức sản phẩm mới, tiếp thu nhanh các công cụ số và không ngừng trau dồi kỹ năng chuyên môn.</p></div>
+                  </div>
+      </div>
+    </article>
+    
+    
+        <!-- Window: Học vấn & Công cụ -->
+    <article class="win glass" id="win-edu" data-w="lg" aria-label="Học vấn &amp; Công cụ">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Học vấn &amp; Công cụ</h2></div>      <div class="win-body">
+        <div class="win-intro"><p class="eyebrow">05 // NỀN TẢNG &amp; CÔNG CỤ</p></div>                  <div class="edu">
+            <span class="job-time">07/2017 — 09/2020</span>
+            <h3>Cao Đẳng Thực Hành</h3>
+                                      <span class="job-co">IT - Phần Mềm • Lập trình di động</span>
+                                      <p class="muted edu-desc">Trang bị tư duy logic vững vàng, khả năng tiếp cận và ứng dụng nhanh chóng các công nghệ, phần mềm quản lý kinh doanh, quản trị sàn TMĐT và nền tảng số hiện đại.</p>
+                                      <p class="edu-foot mono">Tư duy logic • Khả năng tiếp cận công nghệ số nhanh</p>
+                      </div>
+                        <div class="cards">
+                      <div class="card"><h3>Canva Pro</h3><p>Thiết kế hình ảnh, tem dán mừng các dịp lễ/tết và banner chương trình ưu đãi bán hàng.</p></div>
+                      <div class="card"><h3>Shopee &amp; Lazada</h3><p>Quản trị thông tin sản phẩm, xử lý đơn hàng và theo dõi vận chuyển sàn thương mại điện tử.</p></div>
+                      <div class="card"><h3>MS Excel &amp; Word</h3><p>Lập báo cáo doanh số, soạn thảo hợp đồng kinh tế và làm báo giá chi tiết cho khách hàng.</p></div>
+                      <div class="card"><h3>Zalo OA &amp; Fanpage</h3><p>Trực page, tư vấn khách hàng, giải đáp thắc mắc và chăm sóc khách hàng sau bán hàng.</p></div>
+                  </div>
+              </div>
+    </article>
+    
+        <!-- Window: Liên hệ + form gửi lời nhắn (antispam giữ nguyên) -->
+    <article class="win glass" id="win-contact" aria-label="Liên hệ">
+      <div class="win-bar"><span class="lights"><button class="l-close" type="button" aria-label="Đóng" title="Đóng (Esc)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l-min" type="button" aria-label="Thu nhỏ xuống dock" title="Thu nhỏ (Ctrl/⌘ + M)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5h6"/></svg></button><button class="l-max" type="button" aria-label="Phóng to / thu về" title="Phóng to (nhấp đúp thanh tiêu đề)"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.2 6.3V2.2h4.1z M7.8 3.7v4.1H3.7z" class="fill"/></svg></button></span><h2 class="win-title">Liên hệ</h2></div>      <div class="win-body">
+                  <div class="win-intro">
+                          <h3 class="contact-heading">Sẵn sàng đồng hành cùng doanh nghiệp đạt mục tiêu doanh số.</h3>
+                                      <p class="win-sub muted">Quý nhà tuyển dụng có thể liên hệ trực tiếp với tôi qua các kênh bên dưới để trao đổi chi tiết hơn về cơ hội hợp tác.</p>
+                      </div>
+        
+        <div class="contact-list">
+                      <a class="contact-row" href="tel:0876488047"><span>ĐIỆN THOẠI</span><b>087 6488 047</b></a>
+                                <a class="contact-row" href="mailto:hphuong123123@gmail.com"><span>EMAIL</span><b>hphuong123123@gmail.com</b></a>
+                                <a class="contact-row" href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer"><span>ZALO</span><b>087 6488 047</b></a>
+                                <div class="contact-row"><span>ĐỊA CHỈ</span><b>Trường Thọ, TP. Thủ Đức, TP.HCM</b></div>
+                  </div>
+
+        <div class="actions">
+                      <button class="btn btn-glass" type="button" data-copy="hphuong123123@gmail.com" data-copy-label="email">Sao chép email</button>
+                                <a class="btn btn-solid" href="CV-Hien-Phuong.pdf" download>Tải CV (PDF)</a>
+                  </div>
+
+        
+                  <div class="win-foot">
+            <p><b>HIỀN PHƯƠNG — Nhân Viên Kinh Doanh</b></p>            <p>Giao diện Liquid Glass · All rights reserved &copy; 2026.</p>          </div>
+              </div>
+    </article>
+      </main>
+
+  <!-- Dock (desktop) -->
+  <nav class="dock glass" aria-label="Dock">
+          <button class="dock-item" type="button" data-open="about"><span class="dock-tip glass">Về tôi</span><span class="app-icon ic1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span></button>
+          <button class="dock-item" type="button" data-open="skills"><span class="dock-tip glass">Kỹ năng</span><span class="app-icon ic3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></button>
+          <button class="dock-item" type="button" data-open="exp"><span class="dock-tip glass">Kinh nghiệm</span><span class="app-icon ic2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span></button>
+          <button class="dock-item" type="button" data-open="strengths"><span class="dock-tip glass">Điểm mạnh</span><span class="app-icon ic4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span></button>
+          <button class="dock-item" type="button" data-open="edu"><span class="dock-tip glass">Học vấn</span><span class="app-icon ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span></button>
+          <button class="dock-item" type="button" data-open="contact"><span class="dock-tip glass">Liên hệ</span><span class="app-icon ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span></button>
+      </nav>
+
+  <!-- Call bar (mobile) -->
+  <div class="callbar glass">
+          <a class="btn btn-solid" href="tel:0876488047">Gọi ngay</a>
+              <a class="btn btn-glass" href="https://zalo.me/0876488047" target="_blank" rel="noopener noreferrer">Zalo</a>
+              <a class="btn btn-glass" href="CV-Hien-Phuong.pdf" download title="Tải CV dạng PDF">Tải CV</a>
+      </div>
+
+  <div class="scrim"></div>
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/script5.js"></script>
 </body>
 </html>
